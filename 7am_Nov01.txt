@@ -1,0 +1,3771 @@
+software architectures:
+application: collection of services.
+
+types:
+1. one tier
+2. two tier
+3. three tier
+4. n tier
+
+tier = layer = server
+
+server: which provides services.
+types of servers:
+1. web server
+2. app server
+3. db server
+
+WEB SERVER:
+It will show the application.
+it is also called as presentation layer.
+takes request from user and send to app server.
+
+UI/UX DEVELOPERS:
+UI TECHNOLOGIES:
+html,css, js ----
+frontend developers
+
+
+APP SERVER:
+To use the application.
+It is also called as Logic layer.
+
+Backend DEVELOPERS:
+Programming languages:
+Java, python, .net, go 
+top: js
+
+DB SERVER:
+To store and retrive the data.
+It is also called as db layer.
+
+db admins:
+db languages
+sql, postgres, oracle
+
+
+one tier: standalone app
+it will work locally, no need of internet.
+ALL LAYERS web, app, db will be on single place.
+app need to be on local.
+ex: VLC, MS SUITE
+
+
+two tier: client server apps
+web and app layers will be on local, but db will be on internet.
+app need to be on local.
+ex: jio saavan
+
+three tier: web app
+all 3 layers will be seperated
+app need not to be on local.
+ex: youtube, bookmyshow
+
+Ntier: distriburted applications
+if we have more than one app server.
+-------------------------------------------------------------------------
+DAY-02: 
+
+TO IMPLEMENT ANY ARCHITECTURE WE NEED TO USE SERVERS.
+SERVER -- > AWS ACCOUNT -- > 
+
+
+
+=================================
+
+DAY-03: SERVERS
+
+SERVER: provides services to end user.
+ex: app = paytm, services = movies, train, dth, ----
+APPLICATION: collection of services
+
+server -- > application -- > services
+
+cloud: data centers
+on-prem: local space
+
+
+aws: 34%
+azure: 19%
+gcp: 10%
+salesforce: 4%
+
+EC2 = ELASTIC COMPUTE CLOUD
+STEPS TO CREATE EC2: 7 STEPS
+
+SERVER = COMPUTER
+
+1. TAGS = NAME, TAGS
+2. AMI = OS, SOFWARES
+3. INSTANCE_TYPE = RAM, CPU
+4. KEY_PAIR = LOGIN (PUBLIC=AWS, PRIVATE=USER)
+5. NETWORKING = VPC, SECURITY GROUPS 
+6. STORAGE = EBS VOLUME (8GB, 16TB)
+7. SUMMARY
+
+
+VPC= VIRTUAL PRIVATE CLOUD (creats seperate n/w)
+SG= DEFINE PORT NUMBERS (0-65535)
+SSH = SECURE SHELL (22) -- > TO COMMUNICATE WITH SERVER
+
+
+yum install httpd git -y
+systemctl start httpd
+systemctl status httpd
+cd /var/www/html
+git clone https://github.com/CleverProgrammers/pwj-netflix-clone.git
+mv pwj-netflix-clone/* .
+tail -100f /var/log/httpd/access_log
+
+
+
+==============================================================================
+
+WHERE:
+1. ANDROID 
+2. SUPER COMPUTERS
+3. SMART WATCHES/TV 
+
+COMPONENTS:
+KERNEL: DEALS WITH HARDWARE COMPONENTS (CPU, MEMORY)
+DAEMON: DEALS WITH BACKGROUND PROCESS (BOOTING, KEYBOARD --)
+SHELL: DEALS WITH USER INPUTS (COMMAND, SCRIPTS, PROGRAMMS)
+
+
+FLAVOURS/DISTRIBUTIONS:
+IPHONE : 14, 14 PLUS, 14 MINI, 14 PRO, 14 PRO MAX
+LINUX: REDHAT, UBUNTU, CENTOS, FEDORA, OPEN SESU, LINUX MINT, ARCH, ROCKY, ALMA
+
+
+SERVER: LINUX-OS
+MODES:
+1. GUI	: GRAPHICAL USER INTERFACE
+2. CLI	: COMMAND LINE INTERFACE
+
+by default user: ec2-user
+we need to work with: root user
+
+SYSTEM COMMANDS:
+sudo -i		: to switch ec2-user to root
+uname		: to show os
+uname -a	: to show additinal info of os
+whoami		: to show current user
+logout(ctrl d)	: to switch root to ec2-user
+clear (ctrl l)	: to clear the screen
+who (w)		: to show who logins to system
+date		: to show date
+cal		: to show calenders
+
+HARDWARE COMMNADS:
+cat /proc/cpuinfo(lscpu)	: shows cpu iformation
+cat /proc/meminfo(lsmem)	: shows memory information
+cat /etc/os-release		: shows flavour of our os
+fdisk -l (df -h)		: to show the volume information
+dmesg				: to show boot msgs
+yum install lshw -y		: yum(pkg manager) install(action) lshw(pkg)
+lshw				: to show list of hardware components
+
+
+
+FILE COMMANDS:
+touch file1		: to craete a file
+ls/ll			: to list files
+cat file1		: to show the content in file
+more file1		: to show the content in file
+cat>>file1		: to insert content
+enter ctrl d		: to save and exit
+cp file1 file2		: copies content form file1 to file2
+cat file1 >> file2	: copies the content from file1 to file2 with out losing data
+mv file1 file2		: to rename a file
+touch file{1..100}	: to create multiple files
+rm file1		: to remove a file
+rm file2 -f		: to remove a file forcefully
+rm * -f			: to remove all files forecfully
+find / -name meminfo	: to find a particular file in linux
+head file1		: to print top 10 lines
+head -5 file1		: to print top 5 lines
+head -12 file1		: to print top 12 lines
+tail file1		: to print bottom 10 lines
+tail -5 file1		: to print bottom -5 lines
+tail -12 file1		: to print bottom -15 lines
+sed -n '6,13p' abc	: to print line 6 to 13 
+sed -n '9p' abc		: to print 9th line 
+=======================================================================
+PERMISSIONS:
+
+-rw-r--r--  
+
+FILE TYPE:
+-	: regular file
+b	: blocked file
+c	: charcter file
+d	: directory
+l	: link file
+
+types:
+read	: r	: 4
+write	: w	: 2
+executable: x	: 1
+
+user:rw-	: 6
+group:r--	: 4
+others:r-- 	: 4	
+
+command: 
+Numerical: chmod 777 file1
+alphabetical: chmod u=rwx,g=rx,o=rx file1
+
+USERS & GROUPS:
+ec2-user: default user
+root: he is admin he has all permissions
+normal user: when we create a user he will be normal user
+sudo user: when we give permissions to normal user.
+
+useradd raham		: to create user
+passwd raham		: to give password
+cat /etc/passwd		: to see list of users
+cat /etc/group		: to see list of groups
+cat /etc/shadow		: to see password
+ll /home		: to see folder for user
+groupadd devops		: to create a group
+usermod -a -G devops raham : to add raham user to devops group
+gpasswd --delete siva devops : to remove user from group
+visudo -- > :100 -- > yy -- > p -- > --> i -- > raham --> esc :wq
+
+userdel			: to delete user
+groupdel		: to delete group
+
+================================================================
+FOLDERS/DIRECTORIES:
+
+mkdir dir1	: to create a folder
+cd dir1		: to go inside a folder
+cd ..		: to come a folder back
+cd ../..	: to come 2 folders back
+cd -		: to go back previous folder
+rmdir		: to remova a folder
+
+
+============================================
+
+EDITOR: to insert,edit and modify the content.
+types:
+1. vi/vim
+2. nano
+
+i	: to go to insert mode
+esc	: to exit insert mode
+
+3. SAVE MODE:
+:w	: to save file
+:q	: to quit 
+:wq	: to save and quit
+:wq!	: to save and quit forceflly
+
+
+2. INSERT MODE:
+i	: to insert
+A ($)	: end of line
+I (0)	: start of line (shift m)
+O	: create new line above existing 
+o	: create new line below existing
+shift w	: goes to start of each word
+
+3. COMMAND MODE:
+gg	: top of file 
+shift g	: bottom of file
+:set number: to print lines inside file
+:15	: to go 15th line (15gg)
+:7	: to go 7Th line
+yy	: to copy single line
+10yy	: to copy 10 lines
+p	: to paste single line
+10p	: to paste 10 lines
+dd	: delete a single line
+10dd	: to delete 10 lines
+u	: to undo
+ctrl r	: to redo
+/word	: to search for a word
+====================================================================
+
+GREP: to search for a word
+global regular experssion print:
+
+grep Raham file1	: to search for word raham in file1
+grep Raham file1 -i	: to search for word raham in file1 (-i: casesensitive)
+grep 'raham\|linux' file1: to search for multiple words
+grep 'raham\|linux\|topic' file1
+grep raham file1 -c	: to show how many time word raham is
+grep raham file1 -v	: to print the lines with out word raham
+cat /proc/meminfo | grep free -i
+cat /proc/cpuinfo | grep cores -i
+
+===================================================================== 
+stream editor
+
+sed 's/raham/vijay/' file1	: to replace a word outside
+sed :%s/raham/vijay/		: to replace a word inside
+sed 's/vijay/raham/;s/linux/unix/' file1 : to replace multiple words
+sed '2c hai' file1		: to replace 2nd line
+
+=========================================================
+28-08-2023 DAY-01: GIT : INTRO, HISTORY, STAGES, SOME BASIC COMMANDS
+
+GIT: GLOBAL INFORMATION TRACKER
+VCS: TO KEEP SOURCE CODE SEPERATELY FOR EVERY VERSION
+
+ROLLBACK: GOING BACK TO PREVIOUS VERSION
+
+CVCS: SOURCE CODE WILL BE ON SINGLE REPO.
+EX: SVN
+
+DVCS: SOURCE CODE WILL BE ON MULTIPLE REPO.
+EX: GIT
+
+
+STAGES:
+WORKING DIRECTORY: where we write our source code.
+STAGING AREA: where we track our source code. 
+REPOSITORY: where we store our tracked source code.
+local repo: .git {note: without .git commands will not work}
+
+INSTALLATION:
+yum install git -y  [yum: pkg manager, install: action, git: pkg name, -y: yes]
+git init	: to install .git repo
+
+touch index.html 	: to create a file
+git status		: to show status of file
+git add index.html	: to track the file
+git commit -m "msg: index.html: to commit a file
+git log			: to show commits
+git log	--oneline	: to show commits in single line
+git log	--oneline -2	: to show last 2 commits in single line
+
+HISTROY:
+ 1  mkdir paytm
+    2  cd paytm/
+    3  yum install git -y
+    4  ls -al
+    5  git add
+    6  git init
+    7  ls -al
+    8  touch index.html
+    9  ll
+   10  git status
+   11  git add index.html
+   12  git status
+   13  git commit -m "commit-1" index.html
+   14  git status
+   15  ll
+   16  touch java1
+   17  git status
+   18  git add java1
+   19  git status
+   20  git commit -m "commit-2" java1
+   21  touch python1
+   22  git add python1
+   23  git commit -m "commit-3" python1
+   24  git log
+   25  git log --oneline
+   26  git log --oneline -2
+   27  git log --oneline -1
+   28  cd
+   29  git add
+   30  git status
+   31  history
+=====================================================================
+29-08-2023: DAY-02 - branches, restore, github creation, pushing
+
+BRANCHES:
+it is a individual line of development.
+developers will create a branch and isolate their work.
+by default branch in git is master.
+at the end of the code completion developers push the code to github.
+without initial commit we cannot see a branch.
+
+
+COMMANDS:
+git branch		: to list branches
+git branch movies	: to create branch
+git checkout movies	: to switch to movies branch
+git checkout -b train	: to create and switch at same time
+
+GITHUB:
+its a central repo where we can store code on internet.
+to store code there we need to create a github account.
+
+1. create a repo
+2. git remote add origin https://github.com/RAHAMSHAIK007/morningpaym.git
+3. git push origin branchname
+
+username: RAHASHAIK007
+password: 
+
+NOTE: githib remove the password in aug 2021, 
+so we need to create token here 
+token will be visble only once.
+
+
+Settings -- > Developer Settings -- > PAT -- > classic -- > generate new token -- >clasic 
+
+
+GIT RESTORE: it will restore all the deleted files in git.
+git restore *
+
+GIT CLONE: To copy the github repository to local
+git clone repo_url
+
+HISTORY:
+
+ 1  yum install git -y
+    2  mkdir paytm
+    3  cd paytm/
+    4  git init
+    5  git branch
+    6  ls -al
+    7  touch index.html
+    8  git add index.html
+    9  git commit -m "commit-1" index.html
+   10  git branch
+   11  git branch movies
+   12  git branch
+   13  ls
+   14  git checkout movies
+   15  git branch
+   16  touch movies{1..5}
+   17  git add movies*
+   18  git commit -m "dev-1" movies*
+   19  ls -al
+   20  git remote add origin https://github.com/RAHAMSHAIK007/morningpaytm.git
+   21  git push origin movies
+   22  ll
+   23  rm -rf *
+   24  ll
+   25  git pull origin movies
+   26* l
+   27  git pull
+   28  git restore
+   29  git status
+   30  git restore *
+   31  ll
+   32  git branch dth
+   33  git branch
+   34  ll
+   35  git checkout dth
+   36  ll
+   37  touch dth{1..5}
+   38  git add dth*
+   39  git commit -m "dev-2" dth*
+   40  git push origin dth
+   41  ll
+   42  git checkout -b train
+   43  ll
+   44  touch train{1..5}
+   45  git add train*
+   46  git commit -m "dev-3" train*
+   47  git push origin train
+   48  git checkout -b recharge
+   49  touch recharge{1..5}
+   50  git add recharge*
+   51  git commit -m "dev-4" recharge*
+   52  git push origin recharge
+   53  cd
+   54  ll
+   55  rm -rf paytm/
+   56  ll
+   57  git clone https://github.com/RAHAMSHAIK007/morningpaytm.git
+   58  ll
+   59  cd morningpaytm/
+   60  ll
+   61  git branch
+   62  git checkout dth
+   63  ll
+   64  git checkout recharge
+   65  ll
+   66  git checkout train
+   67  ll
+   68  git branch
+   69  git checkout movies
+   70  ll
+   71  git checkout dth
+   72  ll
+   73  git branch
+   74  ll
+   75  git merge train
+   76  ll
+   77  history
+
+ ==============
+
+30-08-2023: DAY-03 merge, rebase, pull push and restore, delete.
+
+MERGE: it will merge files blw 2 branches
+git checkout master
+git merge brach(target)
+
+REBASE: 
+it will merge files blw 2 branches
+git rebase brach(target)
+
+
+MERGE VS REBASE:
+merge will show file names, rebase will not
+merge will not show branch, rebase will show
+merge will save entire history, rebase will not
+
+git branch -m dth raham	: to rename a brach
+git branch -D branchname : to delete branch
+
+PULL: it will get the changes from github to git
+git pull origin branch
+
+FECTH: it will get the changes from github to git
+git fetch
+
+history:
+
+    1  ll
+    2  cd paytm/
+    3  git branch
+    4  ll
+    5  git checkout master
+    6  ll
+    7  cat dth1
+    8  git pull origin master
+    9  git config pull.rebase true
+   10  git pull origin master
+   11  cat dth1
+   12  git pull origin master
+   13  cat dth1
+   14  git fetch
+   15  cat dth1
+   16  history
+
+=======================================================
+
+MERGE CONFLICT:
+it will raise when we merge the files from two different branches.
+it will be resolved manually.
+NOTE: file name must be same to get the conflict.
+
+CHERRY-PICK:
+we can merge the specific files from one branch to another
+git cherry-pick commit_id
+
+RESTORE:
+It will make to undo the changes.
+to recovery the deleted files.
+git restore file_name
+
+REVERT: we want to undo the merging.
+git revert branch_name
+
+.gitingore: this is the file which we used to ignore few files to track and commit.
+
+HISTORY:
+
+  1  mkdir git
+    2  cd p
+    3  cd git/
+    4  yum install git -y
+    5  git init
+    6  touch file1
+    7  git status
+    8  cd
+    9  git status
+   10  cd git/
+   11  vim file1
+   12  git add file1
+   13  git commit -m "dev-1" file1
+   14  git checkout -b branch1
+   15  vim file1
+   16  git add file1
+   17  git commit -m "dev-2" file1
+   18  cat file1
+   19  git checkout master
+   20  vim file1
+   21  cat file1
+   22  git merge branch1
+   23  git add file1
+   24  git commit -m "dev-1 2nd commit" file1
+   25  git merge branch1
+   26  vim file1
+   27  git add file1
+   28  git commit -m "new"
+   29  git status
+   30  cat file1
+   31  vim file1
+   32  git add file1
+   33  git commit -m "new"
+   34  cat file1
+   35  rm -rf *
+   36  ll
+   37  ls -al
+   38  rm -rf .git/
+   39  ll
+   40  git init
+   41  git branch
+   42  touch index.html
+   43  git add index.html
+   44  git commit -m "one" index.html
+   45  git branch
+   46  ls
+   47  git checkout -b branch1
+   48  touch java{1..5}
+   49  git add java*
+   50  git commit -m "java commits"
+   51  touch python{1..5}
+   52  git add python*
+   53  git commit -m "python commits" python*
+   54  touch php{1..5}
+   55  git add php*
+   56  git commit -m "php commits" php*
+   57  git log --oneline
+   58  git checkout master
+   59  git cherry-pick 54312d2
+   60  ll
+   61  git cherry-pick 2bb86e7
+   62  git cherry-pick java commits
+   63  git cherry-pick 9f172da
+   64  ll
+   65  rm -rf php{2..5}
+   66  ll
+   67  git checkout  branch1
+   68  ll
+   69  git status
+   70  git restore php2 php3 php4 php5
+   71  ll
+   72  git checkout  master
+   73  ll
+   74  touch go{1..5}
+   75  git add go*
+   76  git commit -m "go commits" go*
+   77  git branch
+   78  git checkout branch1
+   79  ls
+   80  git merge master
+   81  git restore master
+   82  git revert master
+   83  ls
+   84  ll
+   85  ls
+   86  git status
+   87  touch raham{1..5}
+   88  git status
+   89  vim .gitignore
+   90  git status
+   91  vim .gitignore
+   92  git status
+   93  ls
+   94  histroy
+   95  history
+
+========================================================================================
+DATE: 05-09-2023
+MAVEN:
+its a build too1.
+main file is POM.XML (project object model & Extensible markup language)
+it is used to create artifact (war, jar, ear)
+It is mostly used for java-based projects.
+It was initially released on 13 July 2004.
+Maven is written in java (1.8.0)
+
+RAW: .java  (we cant use it)
+.java -- > compile -- > .class -- > .jar
+
+.class 	: which can be executable
+.jar    : group of .class files (works for backend)
+.war	: it has frontend and backend code (FE: HTML, CSS, JS & BE: JAVA)
+libs	: its a pre defined packages used for code.
+
+ARTIFACTS: its the final product.
+JAR = JAVA ARCHIVE
+WAR = WEB ARCHIVE 
+EAR = ENTERPRISE ARCHIVE
+
+ARCHITECTURE:
+
+SETUP: CREATE EC2
+yum install git java-1.8.0-openjdk maven tree -y
+git clone https://github.com/devopsbyraham/jenkins-java-project.git
+cd jenkins-java-project.git
+
+PLUGIN: its a small software which automates our work.
+with the plugins we can use tools without installing them.
+
+GOAL: its a command used to perfrom task.
+MAVEN follows a lifecycle
+
+mvn compile	: compiles the source code
+mvn test	: to test the code
+mvn package	: to create artifact (project directory)
+mvn install	: to create artifact (maven home dir .m2)
+mvn clean packge: to perform entire goals 
+mvn clean	: to delete artifact
+
+
+maven			ant
+pom.xml			build.xml
+life cycle		no life cycle
+procedural		declareative
+plugins			no plugins
+no scripts 		scripts
+
+WHAT IF BUILD FAILS:
+1. CHECK JAVA VERSION FOR MAVEN
+2. CHECK POM.XML
+3. CHECK THE CODE
+
+
+HISTORY:
+ 1  yum install git java-1.8.0-openjdk maven -y
+    2  git clone https://github.com/devopsbyraham/jenkins-java-project.git
+    3  cd jenkins-java-project/
+    4  ll
+    5  vim pom.xml
+    6  yum install tree -y
+    7  tree
+    8  mvn compile
+    9  ll
+   10  tree
+   11  mvn test
+   12  tree
+   13  mvn package
+   14  tree
+   15  mvn compile
+   16  mvn test
+   17  ll
+   18  mvn install
+   19  cd /root/.m2/repository/in/RAHAM/NETFLIX/1.2.2/
+   20  ll
+   21  cd -
+   22  mvn clean package
+   23  ll
+   24  mvn clean
+   25  ll
+   26  mvn clean package
+   27  ll
+   28  tree
+   29  history
+
+===============================================================================
+06-09-2023: JENKINS DAY-01:
+
+JENKINS IS A CI/CD TOOL.
+
+CI = CONTINOUS INTEGRATION = CONTINOUS BUILD + CONTINOUS TEST (OLD CODE WITH NEW)
+BEFORE CI EVERYTHING IS MANUAL AND TIME TAKING
+AFTER CI THE PROCESS IS AUTOMATED
+
+CD = CONTINOUS DELIVERY	 : MANUAL PROCESS OF DEPLOYMENT TO PRODUCTION
+CD = CONTINOUS DEPLOYMENT: AUTOMATIC PROCESS OF DEPLOYMENT TO PRODUCTION
+
+ENV:
+DEV	: DEVELOPERS
+TEST	: TESTERS
+UAT	: CLIENT
+WE CAN CALL THEM AS PRE-PROD OR NON-PROD
+
+PROD	: USERS
+WE CAN CALL IT AS LIVE ENV
+
+PIPELINE: 
+STEP BY STEP EXECUTION OF A PROCESS.
+SERIES OF EVENTS INTERLINKED WITH EACH OTHER.
+IT IS USED TO AUTOMATE OUR ENTIRE PROCESS.
+
+JENKINS:
+Jenkins is an free and open source project 
+written in java by Kohsuke Kawaguchi 
+it runs on the Window, Linux and Mac OS 
+Consist of Plugins 
+Automates the Entire Software Development Life Cycle (SDLC).
+It was originally developed by Sun Microsystem in 2004 as HUDSON.
+Hudson was an enterprise Edition we need to pay for it.
+The project was renamed Jenkins when Oracle brought the Microsystems.
+port for jenkins is 8080.
+
+SETUP: CREATE EC2 WITH ALL TRAFFIC IN SG
+
+#STEP-1: INSTALLING GIT JAVA-1.8.0 MAVEN 
+yum install git java-1.8.0-openjdk maven -y
+
+#STEP-2: GETTING THE REPO (jenkins.io --> download -- > redhat)
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+#STEP-3: DOWNLOAD JAVA11 AND JENKINS
+amazon-linux-extras install java-openjdk11 -y
+yum install jenkins -y
+update-alternatives --config java
+
+#STEP-4: RESTARTING JENKINS (when we download service it will on stopped state)
+systemctl start jenkins.service
+systemctl status jenkins.service
+
+
+HOW TO CONNECT: COPY PUBLIC IP OF SERVER AND GO TO BROWSER
+publicip:8080
+
+create a job -- > net item -- > name -- > freestyle -- > ok -- > source code: git
+https://github.com/devopsbyraham/jenkins-java-project.git -- > build step -- > execute shell -- > mvn clean package -- > save -- > build now
+============================================================================
+DAY-02: 07-09-2023
+VARIABLES:
+
+It will store data, keeps changing as per time
+
+a=10
+name=raham
+
+USERDEFINED:
+
+1. LOCAL VARS: it will work inside job
+
+name=imthiaz
+echo "hai all my name is $name, $name is working for tcs, $name is from hyd"
+
+2. GLOBAL VARS: it will work outside of job also.
+
+Dashboard -- > Manage Jenkins -- > System -- > Global properties -- > Environment variables -- >add name: raham loc: pune
+	
+
+JENKINS ENV VARS:
+it will given by jenkins default.
+user cant define or modify these values.
+
+
+PORT CHANGE:
+vim /usr/lib/systemd/system/jenkins.service
+67: 8080=8090
+systemctl daemon-reload
+systemctl restart jenkins.service
+systemctl status jenkins.service
+
+
+PARAMETERS: way of passing input for jenkins jobs
+Choice: it will multiple inputs as a options 
+string:
+multi line string:
+file:
+bool: 
+
+PASSWORDLESS LOGIN:
+vim /var/lib/jenkins/config.xml
+systemctl restart jenkins.service
+systemctl status jenkins.service
+
+PLUGINS:
+1. job configuration history: to restore jenkins delete jobs
+
+BUILD HISTORY: to show entire build details of all jobs in jenkins
+
+=====================================================
+CRONJOB: To schedule works in jenkins for particular time.
+syntax: * * * * *
+space is must 
+NOTE: server follows UTC time zone
+
+*	: minutes
+*	: hours
+*	: date
+*	: month
+*	: day of week (0=sun 6=sat)
+
+10:30 AM 08-09-2023
+30 10 8 9 5
+30 10 8 9 5
+
+4:56 PM 10-09-2023
+56 16 10 9 0
+56 16 10 9 0
+
+usecase:
+to take db backups
+to schedule the builds
+and to schedule the deployments
+
+POLLSCM:
+This is used when we want to build after developer pushes the code for regular interval.
+
+Limitiation:
+9 am -- > 7 am (2 hrs) 
+3 times commit -- > last commit 
+
+webhook: it will build the code the moment we commit the code.
+
+threottle build: to restrict the builds for particular intervals.
+
+Jenkins troubleshoot when server crashed:
+1. stop and start the server 
+ip will change & service will be stopped
+
+systemctl enable jenkins
+chkconfig jenkins on
+
+=====================================================================
+PIPELINE:
+STEP BY STEP EXCUTION OF A PROCESS.
+SERIES OF EVENTS INTERLINKED WITH EACH OTHER.
+WE USE GROOVY LANGUAGE TO WRITE PIPELINES.
+GROOVY IS DSL.
+SYNTAXS AND INDENTATION IS IMPORTANT.
+
+CODE -- > BUILD -- > TEST -- > DEPLOY
+
+TYPES:
+1. SCRIPTED
+2. DECLARATIVE
+
+DECLARATIVE:
+we can use this pipeline to build end to end deployment.
+here we have stages, stage and steps.
+
+SINGLE STAGE PIPLINE:
+
+pipeline {
+    agent any 
+    
+    stages {
+        stage('mem') {
+            steps {
+                sh 'cat /proc/meminfo'
+            }
+        }
+    }
+}
+
+MULTI STAGE PIPELINE:
+
+pipeline {
+    agent any 
+    
+    stages {
+        stage('mem') {
+            steps {
+                sh 'cat /proc/meminfo'
+            }
+        }
+        stage('cpu') {
+            steps {
+                sh 'cat /proc/cpuinfo'
+            }
+        }
+    }
+}
+
+PIPELINE AS A CODE: MULTIPLE COMMANDS/ACTION OVER A SINGLE STAGE
+
+pipeline {
+    agent any 
+    
+    stages {
+        stage('one') {
+            steps {
+                sh 'cat /proc/meminfo'
+                sh 'cat /proc/cpuinfo'
+            }
+        }
+    }
+}
+
+pipeline {
+    agent any 
+    
+    stages {
+        stage('one') {
+            steps {
+                sh 'cat /proc/meminfo'
+                sh 'cat /proc/cpuinfo'
+            }
+        }
+        stage('two') {
+            steps {
+                sh 'touch file1'
+                sh 'lsblk'
+                sh 'uname'
+            }
+        }
+    }
+}
+
+PAAC OVER SINGLE SHELL:
+
+pipeline {
+    agent any 
+    
+    stages {
+        stage('one') {
+            steps {
+                git 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                sh '''
+                mvn compile
+                mvn test
+                mvn package
+                mvn install
+                mvn clean package
+                '''
+            }
+        }
+    }
+}
+
+=========================================
+REAL TIME CI PIPELINE:
+STATEMENT:
+CODE -- > BUILD -- > TEST -- > WAR
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/rahamshaik007/jenkins-java-project.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('code quality') {
+            steps {
+                sh '''
+                mvn sonar:sonar \
+                  -Dsonar.projectKey=netflix \
+                  -Dsonar.host.url=http://3.110.193.233:9000 \
+                  -Dsonar.login=38cca3d8dbe42f653564c1779838863c5b366b8b
+                '''
+            }
+        }
+        stage('artifact') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+    }
+}
+
+SONAR.SH:
+
+#! /bin/bash
+#Launch an instance with 9000 and t2.medium
+cd /opt/
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.6.50800.zip
+unzip sonarqube-8.9.6.50800.zip
+amazon-linux-extras install java-openjdk11 -y
+useradd sonar
+chown sonar:sonar sonarqube-8.9.6.50800 -R
+chmod 777 sonarqube-8.9.6.50800 -R
+su - sonar
+
+#run this on server manually
+#sh /opt/sonarqube-8.9.6.50800/bin/linux/sonar.sh start
+#echo "user=admin & password=admin"
+
+
+=====================================================
+
+POST BUIL ACTIONS: ACTION THAT HAPPENS AFER THE BUILD IS PERFORMED
+USE CASE IS ARTIFACT STORAGE.
+TYPES:
+1. ALWAYS
+2. SUCCESS
+3. FAILURE
+
+SYNTAX:
+pipeline {
+    agent any
+    
+    stages {
+        stage('one') {
+            steps {
+                ech "hai all"
+            }
+        }
+    }
+    post {
+        failure {
+            echo "the pipeline is finished"
+        }
+    }
+}
+
+INPUT PARAMETER: it will wait for the user input to compelete the pipeline.
+based on user input the pipeline will run and perform actions.
+it is used to avoid the mistakes and consider as best practice for production works.
+
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/rahamshaik007/jenkins-java-project.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('code quality') {
+            steps {
+                sh '''
+                mvn sonar:sonar \
+                  -Dsonar.projectKey=netflix \
+                  -Dsonar.host.url=http://100.26.163.190:9000 \
+                  -Dsonar.login=6fabd743ab535c7c8104880ba4ab0a9ace869f95
+                '''
+            }
+        }
+        stage('artifact') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('deploy') {
+            input {
+                message "is all parameters clear ?"
+                ok "yes"
+            }
+            steps {
+                echo "my code is deployed"
+            }
+        }
+    }
+}
+
+pipeline {
+    agent any
+    
+    environment {
+        name = "raham"
+        loc = "hyderabad"
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo "the name is $name and he is from $loc"
+                sh 'env'
+            }
+        }
+    }
+}
+
+SCRIPTED:
+
+node {
+    stage('one') {
+        echo 'hello world'
+    }
+}
+
+DIFFERENCES:
+SCRPITED START WITH NODE, DECALARATIVE START WITH PIPELINE
+SCRPITED WILL NOT HAVE STAGES, DELCARATIVE WILL HAVE STAGES
+SCRPITED WILL NOT HAVE STEPS, DELCARATIVE WILL HAVE STEPS
+SCRPITED IS LESS IN LENGTH, DELCARATIVE WILL BE LENGTHY
+
+=======================================================================================
+
+MASTER & SLAVE:
+to distributre the builds
+the master will distribute the build to worker nodes
+the communication will be ssh from master to slave
+we need to install agent (java-11)
+and we use label to salve for attaching a build.
+slaves are platform independent.
+
+STEP-1: CREATE EC2 AND INSTALL JAVA-11
+amazon-linux-extras install java-openjdk11 -y
+
+STEP-2: SETUP ON JENKINS
+Dashboard
+Manage Jenkins
+Nodes
+NEW Node -- > name -- > premanent agent -- > create 
+
+Number of executors 	: 3 #no.of parellel builds that slave can do
+Remote root directory	: /tmp #where op is going to store on worker node
+Labels			: slave1 #way to assign job for a worker node
+useage			: last opt
+Launch method		: last opt
+host	 		: private ip of worker node
+add -- > jenlkins-- > kind: ssh username with private key -- > description: slave1 -- > username: ec2-user & Private Key -- > enter directly -- > add -- > copy paste the pem file -- > save
+
+
+Host Key Verification Strategy : last opt
+
+PIPLEINE:
+
+pipeline {
+    agent {
+        label 'slave1'
+    }
+    
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/rahamshaik007/jenkins-java-project.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('code quality') {
+            steps {
+                sh '''
+                mvn sonar:sonar \
+                  -Dsonar.projectKey=netflix \
+                  -Dsonar.host.url=http://100.26.163.190:9000 \
+                  -Dsonar.login=6fabd743ab535c7c8104880ba4ab0a9ace869f95
+                '''
+            }
+        }
+        stage('artifact') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo "my code is deployed"
+            }
+        }
+    }
+}
+
+
+BUILD WILL FAIL: no java and maven for build
+yum install git java-1.8.0-openkd maven -y
+update-alternatives --config java
+
+TOMCAT SETUP:
+NOTE: downlod deploy to container plugin on jenkins
+
+
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.tar.gz
+tar -zxvf apache-tomcat-9.0.80.tar.gz
+vim apache-tomcat-9.0.80/conf/tomcat-users.xml
+vim apache-tomcat-9.0.80/webapps/manager/META-INF/context.xml (21,22 delete)
+sh apache-tomcat-9.0.80/bin/startup.sh
+
+TOMCAT LEVEL TROUBLE SHOOTING:
+1. LOGS: 
+tail -100f /root/apache-tomcat-9.0.80/logs/catalina.2023-09-13.log
+
+2. PASSWORD CHANGE:
+vim /roor/apache-tomcat-9.0.80/conf/tomcat-users.xml
+sh /root/apache-tomcat-9.0.80/bin/startup.sh
+sh /root/apache-tomcat-9.0.80/bin/shutdown.sh
+
+3. PORT CHANGE:
+vim vim /root/apache-tomcat-9.0.80/conf/server.xml
+change 8080 to 8090 in line 69
+sh /root/apache-tomcat-9.0.80/bin/startup.sh
+sh /root/apache-tomcat-9.0.80/bin/shutdown.sh
+
+JENKINS SERVER TROUBLE SHOOTING:
+SERVER:
+1. MAVEN & JAVA VERSION
+2. CPU & MEMORY
+
+JOB:
+1. PORT
+2. BRANCH
+3. PLUGINS
+
+
+pipeline {
+    agent {
+        label'slave1'
+    } 
+    
+    stages {
+        stage('checkout') {
+           steps {
+               git branch: 'main', url: 'https://github.com/devopsbyraham/jenkins-java-project.git'
+           } 
+        }
+        stage('build') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('code quality') {
+            steps {
+                sh '''
+                mvn sonar:sonar \
+                  -Dsonar.projectKey=netflix \
+                  -Dsonar.host.url=http://18.206.207.133:9000 \
+                  -Dsonar.login=14526860dbfe58ff028136078add8583dcf4abc5
+                '''
+            }
+        }
+        stage('artifact') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('deploy') {
+            steps {
+                deploy adapters:[
+                    tomcat9(
+                        credentialsId: 'ec92bb81-1130-4b09-849b-9e69e776deb3',
+                        path: '',
+                        url: 'http://3.87.120.91:8090/'
+                        )
+                    ],
+                    contextPath: 'netflix',
+                    war: 'target/*.war'
+            }
+        }
+    }
+}
+
+
+RBAC: ROLE BASED ACCESS CONTROL.
+
+to restrtic the users from perfoming all access.
+in real time we create roles to do this activity.
+
+1. create users
+Dashboard -- > Manage Jenkins -- > users -- > create user 
+create 2 users (ramesh=fresher & suresh=exp)
+
+2. Download a plugin 
+Dashboard -- > Manage Jenkins -- > Plugins -- > Availabel Plugins
+Role-based Authorization Strategy -- > install -- > go back to top page
+
+Dashboard -- > Manage Jenkins -- > Security -- > Security -- > Authorization
+Role-based Strategy -- >save
+
+3. Manage and assign roles
+Dashboard -- > Manage Jenkins -- > Manage and Assign Roles -- > Manage Roles
+create 2 roles -- > exp -- > fresher
+assign roles -- > add -- > attach roles
+
+
+=========================================================
+ANSIBLE:
+its an automation tool.
+what it automates:
+jenkins
+manual: server, software installation, tomcat 
+deployment=automate
+
+ansible is an end to end automation.
+server creation to deployment.
+its an free and opensource tool.
+it is owned by redhat.
+it was invented by maichle dehaan in year 2012.
+python is dependcy for ansible.
+ansible is an agent less.
+
+COMPONENTS:
+ANSIBLE SEREVR: WE INSTALL ANSIBLE AND WORK FROM HERE.
+WORKER NODES: WHICH CONNECT TO ANSIBLE SERVER.
+PLAYBOOK: IT CONTAINS THE YAML CODE USED TO INSTALL PACKAGES, DEPLOYMENT
+INVENTORY: IT CONTAINS INFO OR WORKER NODES AND GROUPS.
+
+SETUP:
+ALL SERVERS:
+sudo -i
+hostnamectl set-hostname ansible/dev-1/dev-2/test-1/test-2
+sudo -i
+passwd root
+vim /etc/ssh/sshd_config (38 uncomment, 63 no=yes)
+systemctl restart sshd
+systemctl status sshd
+
+ANSIBLE SERVER:
+amazon-linux-extras install ansible2 -y
+yum install python3 python-pip python-dlevel -y
+vim /etc/ansible/hosts
+
+[dev]
+172.31.38.53
+172.31.44.246
+
+[test]
+172.31.33.84
+172.31.32.4
+
+TO CONNECT WITH WORKER NODES:
+ansible server 
+ssh-keygen -- > 4 times enter 
+ssh-copy-id root@private-ip of dev-1
+ssh private-ip of dev-1
+ctrl d
+
+repeate this process for all nodes
+
+to verify: ansible -m setup all      
+===========================================================
+INVENTORY HOST PATTREN:
+ansible all --list-hosts	: to list all servers
+ansible dev --list-hosts	: to list dev servers
+ansible test --list-hosts	: to list test servers
+ansible dev[0] --list-hosts	: to list dev 1st server
+ansible test[1] --list-hosts	: to list test 2nd server
+ansible all[2] --list-hosts	: to list 3 rd server among all
+ansible all[-1] --list-hosts	: to list last server among all
+ansible all[1:3] --list-hosts	: to list server 2 to server 4
+ansible test[1] -m yum -a "name=tree state=present"
+
+
+1. ADHOC COMMANDS:
+these commands are normal linux commands
+used for temp works
+these commands will be overrided.
+
+ansible all -a "touch file1"
+ansible all -a "ls"
+ansible all -a "yum install git -y"
+ansible all -a "git -v"
+ansible all -a "yum install maven -y"
+ansible all -a "yum install httpd -y"
+ansible all -a "systemctl restart httpd"
+ansible all -a "systemctl status httpd"
+ansible all -a "useradd raham"
+ansible all -a "cat /etc/passwd"
+ansible all -a "yum remove httpd* -y"
+ansible all -a "yum remove git* maven* -y"
+
+2. MODULES:
+modules will work on key-value pair.
+key-value pair is also called as dictionary.
+we can use different modules for differnt works.
+
+ansible all -a "yum install git -y"
+ansible all -m yum -a "name=git state=present"
+ansible all -m yum -a "name=git* state=absent"
+ansible all -m yum -a "name=httpd state=present"
+ansible all -m yum -a "name=httpd state=latest"
+ansible all -m yum -a "name=httpd state=started"
+ansible all -m service -a "name=httpd state=started"
+ansible all -m service -a "name=httpd state=stopped"
+ansible all -m user -a "name=raju state=present"
+ansible all -m copy -a "src=raham.yml dest=/tmp"
+ansible all -m ping
+ansible all -m setup
+
+
+COLOR CODES:
+YELLOW	: SUCCESS
+GREEN	: ALREADY DONE
+RED	: FAIL
+BLUE	: SKIP
+
+
+PLAYBOOKS:
+its a collection of modules
+here we can execute multiple modules at a time.
+modules will be on key-value pair.
+we use yaml for write playbooks.
+its a human redable and serializable language.
+it starts with list.
+we can re use the same playbook for multiple time.
+playbook start with --- and end with ...
+
+Gathering_facts : means ansible server will get the info of worker nodes
+its a default task
+TO REPLACE WORDS: sed -i "s/absent/present/g" raham.yml
+
+PLAYBOOK:
+- hosts: all
+  tasks:
+    - name: install git
+      yum: name=git state=present
+
+    - name: install httpd
+      yum: name=httpd state=present
+
+    - name: starting httpd
+      service: name=httpd state=started
+
+    - name: create user
+      user: name=vijay state=present
+
+
+ansible-playbook playbook.yml
+
+- hosts: all
+  tasks:
+    - name: install git
+      yum: name=git state=absent
+
+    - name: install httpd
+      yum: name=httpd state=absent
+
+    - name: starting httpd
+      service: name=httpd state=started
+
+    - name: create user
+      user: name=vijay state=absent
+
+==================================================================
+TAGS: used to execute or skip a particular tasks.
+
+- hosts: all
+  tasks:
+    - name: install git
+      yum: name=git state=present
+      tags: a
+
+    - name: install httpd
+      yum: name=httpd state=present
+      tags: b
+
+    - name: starting httpd
+      service: name=httpd state=started
+      tags: c
+
+    - name: create user
+      user: name=vijay state=present
+      tags: d
+
+SINGLE TAG: ansible-playbook raham.yml --tags b
+MULTI TAG: ansible-playbook raham.yml --tags c,a
+SKIP TAGS: ansible-playbook raham.yml --skip-tags "c"
+MULTI SKIP TAGS: ansible-playbook raham.yml --skip-tags "c,d"
+
+NOTE: AFTER INSTALLING PKGS UNINSTALL THEM
+
+=====================================================================
+
+VARIABLES:
+STATIC VARS: variables which we declare inside the file
+
+- hosts: all
+  vars:
+    a: git
+    b: httpd
+  tasks:
+    - name: install git
+      yum: name={{a}} state=present
+
+    - name: install httpd
+      yum: name={{b}} state=present
+
+
+- hosts: all
+  vars:
+    a: git
+    b: httpd
+  tasks:
+    - name: install git
+      yum: name={{a}} state=absent
+
+    - name: install httpd
+      yum: name={{b}} state=absent
+
+DYNAMIC VARS: variables which we declare outside the file
+
+- hosts: all
+  vars:
+    a: git
+    b: httpd
+  tasks:
+    - name: install git
+      yum: name={{a}} state=present
+
+    - name: install httpd
+      yum: name={{b}} state=present
+
+    - name: install maven
+      yum: name={{c}} state=present
+
+ansible-playbook raham.yml --extra-vars "c=maven"
+
+NOTE: AFTER INSTALLING PKGS UNINSTALL THEM
+===============================================================
+
+LOOPS:
+
+- hosts: all
+  tasks:
+    - name: install pkgs
+      yum: name={{item}} state=present
+      with_items:
+        - git
+        - maven
+        - docker
+        - java-1.8.0-openjdk
+        - tree
+        - lshw
+
+
+- hosts: all
+  tasks:
+    - name: install pkgs
+      user: name={{item}} state=present
+      with_items:
+        - user1
+        - user2
+        - user3
+        - user4
+
+
+=============================================================
+CLUSTER = GROUP OF NODES OR SERVERS.
+TYPES:
+1. HOMOGENIUS = ALL SERVERS ARE SAME OS AND FLAVOURS.
+2. HETROGENIUS = ALL SERVERS ARE DIFFERENT OS AND FLAVOURS.
+
+CONDITION: WHEN WE HAVE HETROGENIUS CLUSTER WE USE CONDITIONS TO WORK ON THEM
+WHY: DIFFERENT FLAVORS USE DIFFERENT PKG MANAGERS
+REDHAT: YUM
+UBUNTU: APT
+
+ansible all -m setup 
+ansible all -m setup | grep -i family
+
+
+- hosts: all
+  tasks:
+    - name: install git RedHat
+      yum: name=git state=present
+      when: ansible_os_family == "RedHat"
+
+    - name: install git Ubuntu
+      apt: name=git state=present
+      when: ansible_os_family == "Ubuntu"
+
+sed -i "s/present/absent/g" raham.yml
+
+- hosts: all
+  tasks:
+    - name: install httpd RedHat
+      yum: name=httpd state=present
+      when: ansible_os_family == "RedHat"
+
+    - name: install httpd Ubuntu
+      apt: name=apache2 state=present
+      when: ansible_os_family == "Ubuntu"
+
+sed -i "s/present/absent/g" raham.yml
+
+
+HANDLERS: here one task will be depend on another task.
+it will call another task once current task is executed.
+
+- hosts: all
+  tasks:
+    - name: install httpd RedHat
+      yum: name=httpd state=present
+      notify: starting httpd
+
+  handlers:
+    - name: starting httpd
+      service: name=httpd state=started
+
+sed -i "s/present/absent/g" raham.yml
+
+SHELL VS COMMAND VS RAW:
+
+- hosts: all
+  tasks:
+    - name: install httpd
+      shell: yum install httpd -y
+
+    - name: install git
+      command: yum install git -y
+
+    - name: install docker
+      raw: yum install docker -y
+
+
+ansible all -a "docker -v"
+ansible all -a "git -v"
+ansible all -a "httpd -v"
+
+raw >> command >> shell
+
+COPY: Used to copy files from ansible to all nodes at a time.
+
+- hosts: all
+  tasks:
+    - name: copy a file
+      copy: src=raham.yml dest=/root
+
+LAMP STACK DEPLOYMENT:
+LAMP: 
+L: LINUX
+A: APACHE
+M: MYSLQ
+P: PHP
+
+WAMP:
+W: WINODS
+A: APACHE
+M: MYSLQ
+P: PHP
+
+
+- hosts: test
+  tasks:
+    - name: install apache
+      yum: name=httpd state=present
+      tags: a
+
+    - name: install mysql
+      yum: name=mysql state=present
+      tags: b
+
+    - name: install php
+      yum: name=php state=present
+      tags: c
+
+
+ANSIBLE-VAULT:
+it is used to encrypt the data.
+ex: username, password, sensitive data 
+technique: AES256 (FACEBOOK)
+to restrict the users to run a playbook.
+
+ansible-vault create creds1.txt
+ansible-vault edit creds1.txt
+ansible-vault rekey creds1.txt
+ansible-vault decrpt creds1.txt
+ansible-vault encrypt creds1.txt
+ansible-vault view creds1.txt
+
+===============================================================================
+
+ROLES:
+it is used to divide playbook into directory structure.
+we can reduce the Playbook length.
+we can encapuslate data.
+in real time all you are going to work on roles only.
+
+.
+├── master.yml
+└── roles
+    ├── lamp
+    │   └── tasks
+    │       └── main.yml
+    ├── pkgs
+    │   └── tasks
+    │       └── main.yml
+    └── users
+        └── tasks
+            └── main.yml
+
+
+yum install tree -y
+
+mkdir playbooks
+cd playbooks/
+
+mkdir -p roles/pkgs/tasks
+vim roles/pkgs/tasks/main.yml
+
+- name: installing pkgs
+  yum: name=git state=present
+
+- name: installing maven
+  yum: name=maven state=present
+
+- name: installing docker
+  yum: name=docker state=present
+
+mkdir -p roles/users/tasks
+vim roles/users/tasks/main.yml
+
+- name: create users
+  user: name={{item}} state=present
+  with_items:
+    - mahesh
+    - suresh
+    - ramesh
+    - yogesh
+    - dinesh
+
+mkdir -p roles/lamp/tasks
+vim roles/lamp/tasks/main.yml
+
+- name: install apache
+  yum: name=httpd state=present
+
+- name: install mysql
+  yum: name=mysql state=present
+
+- name: install php
+  yum: name=php state=present
+
+cat master.yml
+- hosts: all
+  roles:
+    - pkgs
+    - users
+    - lamp
+
+
+ANSIBLE GALAXY:
+we can find all the roles in galaxy
+we can store and download the roles from galaxy
+we use them for ref but cant use in real time
+we can find all types of roles here 
+we can search for users also
+
+ansible-galaxy search tomcat
+ansible-galaxy intall amtega.tomcat
+ansible-galaxy init lucky
+ansible-galaxy init raham
+ansible-galaxy search --author alikins
+
+====================================
+ansible_memtotal_mb
+ansible_memfree_mb
+ansible_hostname
+ansible_os_family
+ansible_pkg_mgr
+ansible_processor_cores
+
+DEBUG: used to print the msgs and custom o/p as per req
+
+- hosts: all
+  tasks:
+    - name: print msg
+      debug:
+        msg: "total mem: {{ansible_memtotal_mb}}, free mem: {{ansible_memfree_mb}}, total cpu cores: {{ansible_processor_cores
+}}, which node: {{ansible_hostname}}, which flavous: {{ansible_os_family}}, pkg manager: {{ansible_pkg_mgr}}"
+
+
+PIP: used to install python libs
+
+redhat: yum
+ubuntu: apt
+python: pip
+
+libs: Numpy, Pandas
+
+- hosts: test
+  tasks:
+    - name: install pip
+      yum: name=pip state=present
+
+    - name: install NumPy
+      pip: name=NumPy state=present
+
+    - name: install Pandas
+      pip: name=Pandas state=present
+
+========================================================================
+
+NETFLIX DEPLOYMENT:
+
+- hosts: test
+  tasks:
+    - name: installing apache server
+      yum: name=httpd state=present
+
+    - name: activating apache server
+      service: name=httpd state=started
+
+    - name: installing git
+      yum: name=git state=present
+
+    - name: git checkout
+      git:
+        repo: "https://github.com/CleverProgrammers/pwj-netflix-clone.git"
+        dest: "/var/www/html"
+
+
+TOMCAT SETUP:
+USE THE REPO 
+TOMCAT.YML, TOMCAT-USER.XML, CONTEXT.XML
+
+https://github.com/RAHAMSHAIK007/all-setups.git
+
+=======================================================================================
+
+MONOLITHIC: SINGLE APPLICATION ON SINGLE SERVER WITH SINGLE DB
+MICRO SERVICES: SINGLE APPLICATION ON MULTIPLE SERVERS WITH MULTIPLE DB.
+
+MONOLITHIC = SERVERS
+MICROSERVICES = CONTAINERS
+
+CONTAINER: ITS LIKE A VM WHICH WILL NOT HAVE OS BY DEFAULT
+IMAGE: IT WILL HAVE OS AND SOFTWARE PKGS REQ TO RUN OUR CONATINER
+
+CONTAINERAIZATION: PROCESS OF PACKING AN APPLICATION WITH ITS DEPENDECY.
+
+TOOL = DOCKER 
+
+It is an open source centralized platform designed to create, deploy and run applications.
+Docker is written in the Go language.
+Docker uses containers on host O.S to run applications. 
+It allows applications to use the same Linux kernel as a system on the host computer, rather than creating a whole virtual O.S.
+We can install Docker on any O.S but the docker engine runs natively on Linux distribution.
+Docker performs O.S level Virtualization also known as Containerization.
+Before Docker many users face problems that a particular code is running in the developer’s system but not in the user system.
+It was initially released in March 2013, and developed by Solomon Hykes and Sebastian Pahl.
+Docker is a set of platform-as-a-service that use O.S level Virtualization, where as VM ware uses Hardware level Virtualization.
+Container have O.S files but its negligible in size compared to original files of that O.S.
+
+
+INSTALLING:
+yum install docker -y
+systemctl start docker
+systemctl status docker
+docker version/ docker --version/ docker -v
+
+image -- > container -- > app 
+
+
+COMMANDS:
+docker pull amazonlinux 	: to pull docker image 
+docker run amazonlinux		: to create container
+docker run --name c1 amazonlinux: to create container
+
+docker run -it --name c2 amazonlinux: 
+-it means interactive mode : used to go inside conatiner
+
+ls
+yum install git -y
+yum install maven -y
+
+ctrl p q
+
+docker ps		: to show running containers
+docker ps -a		: to show all containers
+docker stop cont2       : to stop a container
+docker kill cont1	: to kill a container
+docker start cont1	: to start a container
+docker rm cont2 	: to delete a container
+docker ps -a -q		: to print containers ids
+docker stop $(docker ps -a -q) : to stop all conatiners
+docker rm $(docker ps -a -q) : to remove all conatiners
+
+docker images -q	: to print all images ids
+docker rmi -f image7	: to delete singe docker image
+docker rmi -f $(docker images -q) : to delete all docker images at a time
+
+DAY-02:
+
+NOTE: without running apt update -y in ubuntu package will not install.
+docker pull ubunut
+docker run -it --name cont1 ubuntu
+apt update -y
+apt install git maven apache2 tree -y
+touch files{1..5}
+docker commit cont1 image1
+docker run -it --name cont2 image1
+
+
+IMAGE -- > CONTAINER-1 -- > IMAGE -- > CONTAINER-2
+
+DOCKERFILE:
+its used to automate the image creation.
+we write compinents inside the docker file
+components inside Dockerfile also will be Capital.
+docker file start with D
+its reuseable.
+
+COMPONENTS:
+FROM		: its base image for container
+RUN		: used to run linux commands (image creation)
+CMD		: used to run linux commands (container creation)
+ENTRYPOINT	: high priority than cmd
+COPY		: used to copy local files to container
+ADD		: used to internet local files to container
+WORKDIR		: used to swith directory when we create container
+LABEL		: used to attach labels for images
+ENV		: variables work inside conatiner
+ARGS		: variables we pass from outside conatiner
+EXPOSE		: used to expose the application
+VOLUME		: used to create volumes
+
+
+
+EX-1:
+vim Dockerfile
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install git maven apache2 tree -y
+
+docker build -t image2 .
+docker run -it --name cont3 image2
+
+EX-2:
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install git maven apache2 tree -y
+RUN touch file1
+
+docker build -t image3 .
+docker run -it --name cont4 image3
+
+EX-3:
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install git maven apache2 tree -y
+RUN touch file1
+RUN apt install default-jre -y
+CMD apt install mysql-server -y
+
+EX-4:
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install git maven apache2 tree -y
+RUN touch file1
+COPY index.html /tmp
+ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.tar.gz /tmp
+
+EX-5:
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install git maven apache2 tree -y
+RUN touch file1
+COPY index.html /tmp
+ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.tar.gz /tmp
+WORKDIR /tmp
+LABEL author rahamshaik
+
+docker inspect image6 | grep -i author
+
+EX-6:
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install git maven apache2 tree -y
+RUN touch file1
+COPY index.html /tmp
+ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.tar.gz /tmp
+WORKDIR /tmp
+LABEL author rahamshaik
+ENV name lucky
+ENV client swiggy
+EXPOSE 8080
+
+
+SAMLE APP DEPLOYMENT:
+
+vim Dockerfile
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install apache2 -y
+COPY index.html /var/www/html
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+
+INDEX.HTML
+
+link: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_register_form
+
+docker build -t raham:v1 .
+docker run -itd --name cont1 -p 81:80 raham:v1
+
+
+===========================================================================
+DOCKER VOLUMES:
+Volumes in docker used to store data.
+volume is a simple directory inside conatiner.
+volumes are ephemeral(short living objects)
+volume can be created in multiple ways.
+we can attach single volume to multiple containers.
+at a time we can attach only one container.
+docker uses host resources.
+volumes are lossely coupled to conatiners.
+even if we delete conatiner volume will be deleted.
+cont-1(v1) --- > cont-2(v1) --- > cont-3(v1)
+
+Note: we can get files to local if we create files on conatiner in mount point only.
+
+1. DOCKERFILE:
+
+FROM ubuntu
+VOLUME ["/volume1"]
+
+docker build -t netflix:v1 .
+docker run -it --name cont1 netflix:v1
+cd volume1
+touch file{1..10}
+ctrl p q
+docker run -it --name cont2 --volumes-from cont1 --privileged=true ubuntu
+ll
+docker run -it --name cont3 --volumes-from cont1 --privileged=true ubuntu
+
+2. CLI:
+
+docker run -it --name cont4 -v /volume2 ubuntu
+cd volume2
+touch java{1..10}
+ctrl p q
+docker run -it --name cont5 --volumes-from cont4 --privileged=true ubuntu
+
+3. VOLUME MOUNT:
+
+commands:
+docker volume ls
+docker volume create raham
+docker volume inspect raham
+docker volume rm raham1
+docker volume prune 
+docker volume rm raham --force
+
+cd /var/lib/docker/volumes/raham/_data
+touch python{1..10}
+docker run -it --name cont6 --mount source=raham,destination=/raham ubuntu
+docker volume rm raham1
+we can delete attached volume
+
+4. LOCAL FILE SHARING THROUG VOLUME:
+touch file{1..10}
+docker run -it --name cont1 -v /root/:/abc ubuntu
+cd abc
+ll
+
+
+5. files -- > local 
+check the volume path
+cd path
+cp * /root -R
+
+DOCKER COMPONENTS INFO:
+docker system df
+docker system df -v
+docker system prune
+
+==========================================================================================================
+
+PROCESS:
+CODE -- > DOCKER FILE (BUILD) -- > IMAGE -- > CONT -- > APP
+
+Vim Dockerfile
+
+FROM ubuntu
+RUN apt update -y
+RUN apt install apache2 -y
+COPY index.html /var/www/html
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+
+index.html : https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_form_icon
+
+docker build -t movies:v1 .
+docker run -itd --name cont1 -p 81:80 movies:v1
+
+TRAIN:
+change index.html (movies=train)
+docker build -t train:v1 .
+docker run -itd --name cont2 -p 82:80 train:v1
+
+DTH:
+change index.html (train=dth)
+docker build -t dth:v1 .
+docker run -itd --name cont3 -p 83:80 dth:v1
+
+RECHARGE:
+change index.html (dth=recharge)
+docker build -t recharge:v1 .
+docker run -itd --name cont4 -p 84:80 recharge:v1
+
+DOCKER COMPOSE:
+it is a tool used to create multiple conatiners.
+it will work on signle host.
+we can write a file called docker-compose which will be on yaml format.
+in that file we can write services info (images, port, volume, replicas)
+
+SETUP:
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ls /usr/local/bin/
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose version
+
+vim docker-compose.yml
+
+version: '3.8'
+services:
+  movies:
+    image: movies:v1
+    ports:
+      - "81:80"
+  train:
+    image: train:v1
+    ports:
+      - "82:80"
+  dth:
+    image: dth:v1
+    ports:
+      - "83:80"
+  recharge:
+    image: recharge:v1
+    ports:
+      - "84:80"
+
+COMMANDS:
+docker-compose up -d	: to run all services
+docker-compose stop	: to stop all conatiners
+docker-compose start	: to start all conatiners
+docker-compose kill	: to stop all conatiners
+docker-compose start	: to start all conatiners
+docker-compose pause	: to pause all conatiners
+docker-compose unpause	: to unpause all conatiners
+docker-compose down	: to stop and remove all containers
+docker-compose logs	: to show the logs
+docker-compose ps	: to show only compose conatiners
+docker-compose images	: to show only compose images
+docker-compose top	: to show process running on container
+docker-compose scale dth=10: to scale containers
+
+
+CHANING DEFAULT COMPOSE FILE:
+mv docker-compose.yml raham.yml
+docker-compose down
+Supported filenames: docker-compose.yml, docker-compose.yaml, compose.yml, compose.yaml
+docker-compose -f raham.yml down
+docker-compose -f raham.yml up -d
+docker-compose -f raham.yml kill
+docker-compose -f raham.yml start
+
+NOTE: compose file also works on json, but we wont use it.
+
+DOCKERHUB:
+its a place where we can store all images
+docker hub is nothing but docker registry
+we can store our images centrally
+once we push image to docker hub we can access from anywhere
+
+PROCESS:
+create image
+docker tag image username/repo
+docker push username/repo
+
+HISTORY:
+    1  yum install docker -y
+    2  systemctl start docker
+    3  systemctl status docker
+    4  vim Dockerfile
+    5  vim index.html
+    6  docker build -t movies:v1 .
+    7  docker images
+    8  docker run -it --name cont1 -p 81:80 movies:v1
+    9  vim index.html
+   10  dockr build -t train:v1 .
+   11  docker build -t train:v1 .
+   12  docker images
+   13  docker run -itd --name cont2 -p 82:80 train:v1
+   14  docker ps
+   15  docker rm cont1
+   16  docker run -itd --name cont1 -p 81:80 movies:v1
+   17  docker ps
+   18  cat Dockerfile
+   19  vim index.html
+   20  docker build -t dth:v1 .
+   21  docker run -itd --name cont3 -p 83:80 dth:v1
+   22  vim index.html
+   23  docker build -t recharge:v1 .
+   24  docker run -itd --name cont4 -p 84:80 recharge:v1
+   25  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    (uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   26  ls /usr/local/bin/
+   27  sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+   28  sudo chmod +x /usr/local/bin/docker-compose
+   29  docker-compose version
+   30  vim docker-compose.yml
+   31  docker-compose up -d
+   32  docker ps
+   33  docker kill $(docker ps -a -q)
+   34  docker rm $(docker ps -a -q)
+   35  docker-compose up -d
+   36  docker ps
+   37  docker-compose stop
+   38  docker ps
+   39  docker ps -a
+   40  docker-compose start
+   41  docker-compose kill
+   42  docker ps -a
+   43  docker-compose start
+   44  docker ps -a
+   45  docker-compose pause
+   46  docker ps -a
+   47  docker-compose unpause
+   48  docker ps -a
+   49  docker-compose down
+   50  docker ps -a
+   51  docker-compose up -d
+   52  docker-compose logs
+   53  docker ps =a
+   54  docker ps -a
+   55  docker run -itd --name cont1 ubuntu
+   56  docker run -itd --name cont2 ubuntu
+   57  docker run -itd --name cont3 ubuntu
+   58  docker run -itd --name cont4 ubuntu
+   59  docker ps -a
+   60  docker-compose ps
+   61  docker images
+   62  docker-compose images
+   63  docker-compose top
+   64  docker ps
+   65  docker stop $(docker ps -a -q)
+   66  docker rm $(docker ps -a -q)
+   67  docker-compose up -d
+   68  docker ps
+   69  docker-compose scale dth=10
+   70  docker ps -a
+   71  ll
+   72  rm -rf Dockerfile  index.html
+   73  ll
+   74  mv docker-compose.yml raham.yml
+   75  ll
+   76  docker-compose down
+   77  docker-compose -f raham.yml down
+   78  docker-compose -f raham.yml up -d
+   79  docker ps -a
+   80  docker-compose -f raham.yml stop
+   81  docker-compose -f raham.yml start
+   82  ll
+   83  mv raham.yml compose.yml
+   84  docker-compose stop
+   85  docker images
+   86* docker push hpalak53/train
+   87  docker images
+   88  docker tag train:v1 hpakala53/train
+   89  docker images
+   90  docker push hpakala53/train
+   91  docker login
+   92  docker push hpakala53/train
+   93  docker images
+   94  docker tag movies:v1 hpakala53/movies
+   95  docker push hpakala53/movies
+   96  docker tag dth:v1 hpakala53/dth
+   97  docker push hpakala53/dth
+   98  docker tag recharge:v1 hpakala53/recharge
+   99  docker push hpakala53/recharge
+  100  docker rmin -f $(docker images -q)
+  101  docker rmi -f $(docker images -q)
+  102  docker images
+  103  docker pull hpakala53/train:latest
+  104  docker images
+  105  docker pull hpakala53/dth:latest
+  106  docker images
+  107  history
+
+===========================================================================================
+
+DOCKER SWARM: 
+Docker swarm is an orchestration tool.
+it allows us to manage and handle multiple containers at the same time.
+It is a group of servers that runs the docker application. 
+It is used to manage the containers on multiple servers.
+This can be implemented by the cluster. 
+The activities of the cluster are controlled by a swarm manager, and machines that have joined the cluster is called swarm worker.
+
+
+Docker Engine helps to create Docker Swarm.
+There are mainly worker nodes and manager nodes.
+The worker nodes are connected to the manager nodes.
+So any scaling or update needs to be done first it will go to the manager node.
+From the manager node, all the things will go to the worker node.
+Manager nodes are used to divide the work among the worker nodes. 
+Each worker node will work on an individual service for better performance.
+
+
+SERVICE: Represents a part of the feature of an application.
+TASK: A single part of work.
+MANAGER: This manages the work among the different nodes.
+WORKER: Which works for a specific purpose of the service.
+
+SETUP:
+1. CREATE 3 SERVERS AND SET HOSTNAME 
+hostnamectl set-hostname manager/worker-1/worker-2
+
+2. INSTALL DOCKER 
+yum install docker -y
+systemctl start docker
+systemctl status docker
+
+2. CREATE A TOKEN ON MANAGER
+docker swarm init
+copy the token to all worker nodes
+
+
+docker service create --name movies --replicas=3 --publish 81:80 hpakala53/movies:latest
+docker service ls		: to list the services
+docker service inspect movies	: to get complete info of the services
+docker service ps movies	: to show movies conatiners
+docker service scale movies=10	: to scale the conatiners of movies
+docker service rollback movies	: to go back previous state
+docker service rm movies	: to delete a service
+
+SELF HEALING: recreating a container itself.
+
+CLUSTER ACTIVITES:
+docker swarm leave(worker)	: to remove a node from cluster
+docker node ls			: to list the nodes
+docker node rm node-id(manager)	: to delete the node from cluster
+docker swarm join-token manager	: to regeneratre the token
+
+JENKINS SETUP ON CONATINER:
+docker run -it --name jenkins -p 8080:8080 jenkins/jenkins:lts
+
+
+PROJECT:
+https://github.com/RAHAMSHAIK007/dockernewproject.git
+
+PORTAINER: curl -L https://downloads.portainer.io/ce2-16/portainer-agent-stack.yml -o portainer-agent-stack.yml
+docker stack deploy -c portainer-agent-stack.yml portainer
+Portainer port:9000
+
+===========================================================================================
+
+CLUSTER COMPONENTS:
+
+MANAGER:
+1.API Server	: its used to commmunicate with cluster. takes input and gives op.
+2.ETCD 		: its DB for cluster. stores complete infor of cluster.
+3.Schedulers	: used to schedule pods on worker node, based on hardware resource of node.
+4.Controllers-manager: communicate with controllers.
+cloud control manager: cloud provider.
+kube control manager: on prem.
+
+we have 4 components in Worker Node.
+
+WORKER:
+1. Kubelet    : its an agent which communicates with master.
+2. Kube-Proxy : it deal with networking.
+3. Pod	      : it is group of containers.
+4. Container  : 
+
+SHORTCUT:
+C: CLUSTER
+N: NODE
+P: POD
+C: CONT
+A: APP
+
+
+MINIKUBE:
+
+It is a tool used to setup single node cluster on K8's. 
+It contains API Servers, ETDC database and container runtime
+It helps you to containerized applications.
+It is used for development, testing, and experimentation purposes on local. Here Master and worker runs on same machine
+It is a platform Independent.
+By default it will create one node only.
+Installing Minikube is simple compared to other tools.
+
+NOTE: But we dont implement this in real-time
+
+REQUIRMENTS:
+2 CPUs or more
+2GB of free memory
+20GB of free disk space
+Internet connection
+Container or virtual machine manager, such as: Docker.
+
+
+SETUP:
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install curl wget apt-transport-https -y
+sudo curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo mv minikube-linux-amd64 /usr/local/bin/minikube
+sudo chmod +x /usr/local/bin/minikube
+sudo minikube version
+sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+sudo echo "$(cat kubectl.sha256) kubectl" | sha256sum --check
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+sudo minikube start --driver=docker --force
+
+KUBECTL:
+kubectl is the CLI which is used to interact with a Kubernetes cluster.
+We can create, manage pods, services, deployments, and other resources.
+The configuration of kubectl is in the $HOME/.kube directory.
+The latest version is 1.28
+
+PODS:
+It is a smallest unit of deployment in K8's.
+It is a group of containers.
+Pods are ephemeral (short living objects)
+Mostly we can use single container inside a pod but if we required, we can create multiple containers inside a same pod.
+when we create a pod, containers inside pods can share the same network namespace, and can share the same storage volumes .
+While creating pod, we must specify the image, along with any necessary configuration and resource limits.
+K8's cannot communicate with containers, they can communicate with only pods.
+ We can create this pod in two ways, 
+1. Imperative(command) 
+2. Declarative (Manifest file)
+
+
+commands:
+kubectl run pod1 --image hpakala53/paytmtrain:latest
+kubectl get pods/pod/po
+kubectl get pod -o wide
+kubectl describe pod pod1 
+kubectl delete pod pod1 
+
+MANIFEST:
+vim abc.yml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod1
+spec:
+  containers:
+    - image: hpakala53/paytmtrain:latest
+      name: cont1
+
+kubectl create -f abc.yml
+
+kubectl get pods/pod/po
+kubectl get pod -o wide
+kubectl describe pod pod1 
+kubectl delete pod pod1 
+
+
+Note: if we delete the pod we cant retrive the pod.
+so creating single pod is not a good practise in real time.
+single pod will get more and more load.
+so we need to create more than one pod.
+
+
+REPLICASET:
+it will create replicas of same pod.
+we can use same application with multiple pods.
+even if one pod is deleted automaticallly it will create another pod.
+it has self healing.
+depends on requirment we can scale the pods.
+
+LABELS: used to assing for pods to maintain them as single unit.
+
+kubectl api-resources
+
+vim abc.yml
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: train
+  name: train-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: train
+  template:
+    metadata:
+      labels:
+        app: train
+    spec:
+      containers:
+      - name: cont1
+        image: hpakala53/paytmtrain:latest
+
+kubectl create -f abc.yml
+
+kubectl get rs
+kubectl get po
+kubectl describe rs train-rs
+kubectl delete pod pod-name 
+kubectl get pod -l app=train
+
+kubectl scale rs/train-rs --replicas=10
+kubectl scale rs/train-rs --replicas=5
+LIFO: last pod will be deleted first 
+kubectl delete rs train-rs
+
+DRAWBACKS:
+it will not update the images.
+we cant do rolling and rollback.
+
+DEPLOYMENT:
+deployment will do all activites like RS.
+it can also do  rolling and rollback of app.
+its higher level k8s object.
+
+deployment -- > replicaset -- > pod
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: train
+  name: train-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: train
+  template:
+    metadata:
+      labels:
+        app: train
+    spec:
+      containers:
+      - name: cont1
+        image: hpakala53/paytmtrain:latest
+
+
+kubectl get deploy
+kubectl get po
+kubectl describe deploy train-deploy
+kubectl get pod pod-name 
+
+kubectl scale deploy/train-deploy --replicas=10
+kubectl scale deploy/train-deploy --replicas=5
+LIFO: last pod will be deleted first 
+kubectl delete deploy train-deploy
+
+
+
+==================================================================================================
+
+KOPS:
+it is used to create multi node cluster.
+it will have master and workers.
+its free and open source tool.
+its platfrom independent.
+it will make cluster creation automatically.
+currently it will support for AWS and GCP (others are in Beta stage)
+
+ADVANTAGES:
+automate infra creation.
+supports homegenius and hetrogenius clusters.
+cluster add-on.
+save time and work.
+generates terraform and CFT templates.
+
+INFRA: resources used to run our application on cloud.
+ex: Ec2, Alb, Vpc, Asg ----
+
+MAUNAL METHOD:
+
+STEP-1: CREATE IAM USER AND ATTACH TO EC2
+aws configure -- > provide the details
+
+STEP-2: INSTALL KUBECTL AND KOPS
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+wget https://github.com/kubernetes/kops/releases/download/v1.25.0/kops-linux-amd64
+chmod +x kops-linux-amd64 kubectl
+mv kubectl /usr/local/bin/kubectl
+mv kops-linux-amd64 /usr/local/bin/kops
+
+#vim .bashrc
+#export PATH=$PATH:/usr/local/bin/
+#source .bashrc
+
+STEP-3: CREATE A BUCKET TO STORE CLUSTER INFO
+aws s3api create-bucket --bucket ccitdevops20233.k8s.local --region us-east-1 
+aws s3api put-bucket-versioning --bucket ccitdevops20233.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
+export KOPS_STATE_STORE=s3://ccitdevops20233.k8s.local
+
+SETP-4: CREATE A CLUSTER AND RUN
+kops create cluster --name rahams.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
+kops update cluster --name rahams.k8s.local --yes --admin
+
+
+AUTOMATED SCRIPT:
+SETUPS:
+
+#vim .bashrc
+#export PATH=$PATH:/usr/local/bin/
+#source .bashrc
+
+
+#! /bin/bash
+aws configure
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+wget https://github.com/kubernetes/kops/releases/download/v1.25.0/kops-linux-amd64
+chmod +x kops-linux-amd64 kubectl
+mv kubectl /usr/local/bin/kubectl
+mv kops-linux-amd64 /usr/local/bin/kops
+
+aws s3api create-bucket --bucket ccitdevops20233.k8s.local --region us-east-1 
+aws s3api put-bucket-versioning --bucket ccitdevops20233.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
+export KOPS_STATE_STORE=s3://ccitdevops20233.k8s.local
+kops create cluster --name rahams.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
+kops update cluster --name rahams.k8s.local --yes --admin
+
+
+Suggestions:
+ * list clusters with: kops get cluster
+ * edit this cluster with: kops edit cluster ccitdevops20233.k8s.local
+ * edit your node instance group: kops edit ig --name=ccitdevops20233.k8s.local nodes-us-east-1a
+ * edit your master instance group: kops edit ig --name=ccitdevops20233.k8s.local master-us-east-1a
+
+
+ADMIN ACTIVITES:
+kops edit ig --name=ccitdevops2023.k8s.local nodes-us-east-1a
+kops update cluster --name rahams.k8s.local --yes --admin
+kops rolling-update cluster --yes
+
+kops edit ig --name=ccitdevops2023.k8s.local master-us-east-1a
+kops update cluster --name rahams.k8s.local --yes --admin
+kops rolling-update cluster --yes
+
+TO DELETE CLUSTER:
+kops delete cluster --name rahams.k8s.local --yes 
+
+
+
+KOPS commands are used for cluster activites.
+KUBECTL commands are used for resource activites.
+
+
+NAMESPACE:
+used to divide the cluster among multiple teams.
+in real time all the engineers will need to work on same cluster.
+but we need to isolate their envs.
+dev= dev namespace & test = test namespace & prod = prod namespace
+if we create namespace-1 we can't access namespace-2 
+pod-1 = namespace-1 it will not visible on namespace-2
+
+Home = cluster
+Rooms = Namespaces
+Family mem = Teams 
+
+
+default          : all resources in k8s will create here by default.
+kube-node-lease  : it will hold the leased resources form other nodes.
+kube-public      : it will make all resources availabe publically.
+kube-system   	 : k8s will create its own objects in this namespace.   
+
+kubectl get po -A : to show all pods on all namespaces
+
+kubectl create ns dev : to create namespace
+kubectl config set-context --current --namespace=dev : to switch namespace
+kubectl config view --minify : to view current namespace
+
+kubectl run dev-1 --image nginx
+kubectl run dev-2 --image nginx
+kubectl run dev-3 --image nginx
+kubectl describe pod dev-1 
+
+kubectl create ns test : to create namespace
+kubectl config set-context --current --namespace=test : to switch namespace
+kubectl config test : to view current namespace
+
+kubectl run test-1 --image nginx
+kubectl run test-2 --image nginx
+kubectl run test-3 --image nginx
+kubectl describe pod test-1 
+
+kubectl get po -n dev
+kubectl delete po dev-1 -n dev
+
+kubectl get ns --show-labels
+kubectl get po --show-labels
+kubectl create deploy raham --replicas=2 --image=nginx
+
+kubectl delete ns dev
+kubectl delete ns test
+
+RBAC: we use RBAC concept to restrict the users to access the namespace.
+user -- > role -- > role bind 
+====================================================================================
+SERVICE: It is used to expose the application in k8s.
+
+TYPES:
+1. CLUSTERIP: It will work inside the cluster.
+it will not expose to outer world.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: movies
+  name: movies-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: movies
+  template:
+    metadata:
+      labels:
+        app: movies
+    spec:
+      containers:
+      - name: cont1
+        image: rahamshaik/moviespaytm:latest
+        ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: abc
+spec:
+  type: ClusterIP
+  selector:
+    app: movies
+  ports:
+    - port: 80
+
+
+DRAWBACK:
+We cannot use app outside.
+
+2. NODEPORT: It will expose our application in a particular port.
+Range: 30000 - 32767 (in sg we need to give all traffic)
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: movies
+  name: movies-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: movies
+  template:
+    metadata:
+      labels:
+        app: movies
+    spec:
+      containers:
+      - name: cont1
+        image: rahamshaik/moviespaytm:latest
+        ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: abc
+spec:
+  type: NodePort
+  selector:
+    app: movies
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 31111
+
+
+NOTE: UPDATE THE SG (REMOVE OLD TRAFFIC AND GIVE ALL TRAFFIC & SSH)
+DRAWBACK:
+PORT RESTRICTION.
+
+3. LOADBALACER: It will expose our app and distribute load blw pods.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: swiggy
+  name: swiggy-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: swiggy
+  template:
+    metadata:
+      labels:
+        app: swiggy
+    spec:
+      containers:
+      - name: cont1
+        image: rahamshaik/trainservice:latest
+        ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: abc
+spec:
+  type: LoadBalancer
+  selector:
+    app: swiggy
+  ports:
+    - port: 80
+      targetPort: 80
+
+=======================================
+
+EBS:
+ELASTIC BLOCK STORAGE 
+TO STORE THE DATA RAW, UNFORMATTED AND STRUCTURED.
+BY DEFAULT WE HAVE 8 GB OF EBS VOLUME
+BUT MAX WE CAN EXTEND UPTO 16 TB
+
+EBS ALSO CALLED AS ROOT OR BOOT VOLUE.
+WHY: OUR OS WILL STORE HERE.
+
+TYPES OF VOLUMES:
+
+1. INSTANCE BACKED EC2: if you stop or reboot data will be lost. 
+2. EBS VOLUME : if we stop or reboot the data will not be lost.
+
+TYPES OF EBS:
+1. SSD : GENERAL PURPOSE, PROVISON IOPS
+2. HDD : THROUGHPUT HDD, COLD HDD, (EBS MAGNETIC)
+
+
+
+
+SNAPSHOT:
+its the backup of ebs volume.
+if we lost the server we can get data from snapshot.
+we can scehdule snapshots daily on sepecific time.
+max ebs volume: 5000 max snapshots: 10000
+it will store on bucket (not our buckets)
+
+
+data in transit: data is transferring from ebs to snapshot.
+one we start ceeating snapshot if i create new files in ebs volume those file will be transfered to snapshot.
+
+EBS VOLUME AND SERVER MUST BE ON SAME AZ.
+
+
+=================================
+CLI = COMMAND LINE INTERFACE 
+
+WE WORK WITH COMMANDS INSTEAD OF GUI.
+
+ADV:
+CENTRAL ACCCES
+EASY TO USE
+EASY TO MANAGE THE RESOURCES
+
+
+INSTALLATION:
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+aws configure
+
+file will be on .aws folder
+
+=====================================
+
+SYNTAX: CLOUD SERVICE SUBCOMMAND
+
+aws s3 ls		: to list bucket
+aws s3 ls s3://bucket	: to see files inside bucket
+aws s3 mb s3://ravi8899bucketprod : to create bucket
+aws s3 rb s3://ravi8899bucketprod : to create bucket
+aws s3 cp file_name s3://bucket_name : to copy a file to bucket
+aws s3 cp file_PATH dest : to copy a file from bucket to server
+aws s3 rm s3://ravi8899bucketprod/NETFLIX-1.2.2.war
+aws s3 sync s3://bucket-1 s3://bucket-2 : to copy file from one bucket to another
+aws s3api put-bucket-versioning --bucket ravi8899bucketprod --region us-east-1 --versioning-configuration Status=Enabled
+aws s3api put-bucket-versioning --bucket ravi8899bucketprod --region us-east-1 --versioning-configuration Status=Suspended
+
+
+aws ec2 describe-instances
+aws ec2 describe-instances --instance-ids instance_id
+aws ec2 stop-instances --instance-ids instance_id
+aws ec2 start-instances --instance-ids instance_id
+aws ec2 reboot-instances --instance-ids instance_id
+aws ec2 terminate-instances --instance-ids instance_id
+
+aws iam create-group --group-name rahamshaikgroup
+aws iam create-user --user-name rahamshaik
+aws iam delete-group --group-name rahamshaikgroup
+aws iam delete-user --user-name rahamshaik
+
+
+
+=====================================================================
+TERRAFORM:
+
+INFRA: RESOURCES USED TO RUN OUR APPLICATION ON CLOUD.
+EX: EC2, VPC, ALB
+
+If we create infra manually
+1. Time consume
+2. Mistakes
+3. Tracking 
+
+
+Infra creation -- > Automate -- > Terraform 
+
+Terraform:
+its a free and opensource too1.
+its also called as Infra as a code(IAAC) too1.
+it is used to automate the infra creation.
+its platfrom independet.
+year: 2014
+language: GO lang
+who: Mitchel hasimoto
+Owned: Hashicorp
+
+HOW TO WORK:
+code (hcl) -- > execute -- > infra
+in terraform we use Hashicorp Configuration Language syntax to write the code.
+once we write the code we can reuse it for infra creation.
+we can resue the configuration files multiple times.
+
+
+ADVATNAGES:
+1. Time saving
+2. Automate
+3. Resource Tracking 
+4. Reusable
+5. easy mainatinace
+6. can create multiple resources
+
+
+CFT	: AWS
+ARM	: AZURE
+GDE	: GOOGLE
+TERRAFORM: AWS, AZURE, GCP, -----
+
+
+SETUP:
+
+apt update -y
+apt install awscli -y
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
+terraform -v
+
+mkdir terraform
+cd terraform
+
+vim main.tf
+
+provider "aws" {
+region = "us-east-1"
+}
+
+resource "aws_instance" "one" {
+ami = "ami-03eb6185d756497f8"
+instance_type = "t2.micro"
+}
+
+
+Commands:
+terraform init	: to download provider plugins for resource craetion
+terraform plan  : to create execution plan
+terraform apply : to create resource by terraform
+terraform destroy: to delete resource 
+
++	: Creating
+-	: Deleting
+~	: Update
+
+state file:
+terrform state file is used to store resource current state information.
+it will contain end to end info of our resource.
+its very important file in terraform so we need to keep it safe and secure.
+if we lost that file we cant track the infra.
+
+terraform state list : to show total resources inside state file
+
+
+
+provider "aws" {
+region = "us-east-1"
+}
+
+resource "aws_instance" "one" {
+count = 5
+ami = "ami-03eb6185d756497f8"
+instance_type = "t2.micro"
+}
+
+
+terraform apply
+
+
+target: used to delete a specific resource
+Single target: terraform destroy -target=aws_instance.one[0]
+Multi target: terraform destroy -target=aws_instance.one[1] -target=aws_instance.one[2]
+
+
+variable:
+its a block in yterraform used to define the variables
+why -- > when the values change frequenlty we use vars
+
+provider "aws" {
+region = "us-east-1"
+}
+
+resource "aws_instance" "one" {
+count = var.instance_count
+ami = "ami-0df435f331839b2d6"
+instance_type = var.instance_type
+tags = {
+Name = "terra-server"
+}
+}
+
+variable "instance_type" {
+description = ""
+type = string
+default = "t2.medium"
+}
+
+variable "instance_count" {
+description = ""
+type = number
+default = 5
+}
+
+
+Variable.tf files:
+In terraform all tyhe varibales we can store on seperatefiles.
+it makes opur work easy to avoid confusion.
+
+provider "aws" {
+region = "us-east-1"
+}
+
+resource "aws_instance" "one" {
+count = var.instance_count
+ami = "ami-0df435f331839b2d6"
+instance_type = var.instance_type
+tags = {
+Name = "terra-server"
+}
+}
+
+variable "instance_type" {
+description = ""
+type = string
+default = "t2.medium"
+}
+
+variable "instance_count" {
+description = ""
+type = number
+default = 5
+}
+
+
+varibale.tfvars:
+we can define vars in multiple files.
+
+cat main.tf
+
+provider "aws" {
+region = "us-east-1"
+}
+
+resource "aws_instance" "one" {
+count = var.instance_count
+ami = "ami-0df435f331839b2d6"
+instance_type = var.instance_type
+tags = {
+Name = "terra-server"
+}
+}
+
+cat variable.tf
+
+variable "instance_type" {
+}
+
+variable "instance_count" {
+}
+
+cat dev.tfvars
+
+instance_count = 1
+
+instance_type = "t2.micro"
+
+
+cat test.tfvars
+
+instance_count = 2
+
+instance_type = "t2.medium"
+
+
+terraform apply --auto-approve -var-file="dev.tfvars"
+terraform destroy --auto-approve -var-file="dev.tfvars"
+
+
+Terraform CLI: used to pass values form cli.
+
+
+
+OUTPUT:
+this block is used to print the particular resource values
+
+
+provider "aws" {
+region = "us-east-1"
+}
+
+resource "aws_instance" "one" {
+ami = "ami-0df435f331839b2d6"
+instance_type = "t2.micro"
+tags = {
+Name = "terra-server"
+}
+}
+
+output "raham" {
+value = [aws_instance.one.public_ip, aws_instance.one.private_ip, aws_instance.one.public_dns, aws_instance.one.private_dns]
+}
+
+TERRAFORM IMPORT: used to import and manage the resource configuration which is created manually.
+this command will be used to tracking configuration which are not created by terraform.
+
+cat main.tf
+
+provider "aws" {
+region = "us-east-1"
+}
+
+resource "aws_instance" "one" {
+}
+
+terraform import aws_instance.one i-0c6ee95d68c1c5939
+
+
+===================================================
+TERRAFORM LOCALS: we can define a value here globally and use anywhere in terraform.
+we can define multiple values in local bolcks.
+
+
+provider "aws" {
+region = "us-east-1"
+}
+
+locals {
+env = "dev"
+}
+
+resource "aws_vpc" "one" {
+cidr_block = "10.0.0.0/16"
+tags = {
+Name = "${local.env}-vpc"
+}
+}
+
+resource "aws_subnet" "two" {
+cidr_block = "10.0.0.0/16"
+availability_zone = "us-east-1a"
+vpc_id = aws_vpc.one.id
+tags = {
+Name = "${local.env}-subnet"
+}
+}
+
+resource "aws_instance" "three" {
+subnet_id = aws_subnet.two.id
+ami = "ami-01eccbf80522b562b"
+instance_type = "t2.micro"
+tags = {
+Name = "${local.env}-server"
+}
+}
+
+=============================================================================
+
+TERRAFORM WORKSPACE:
+Workspace: its a place where we write our code.
+It is used to isloate the resources.
+all the commands will work on workspace only.
+without workspace we cant run commands and we cant create resources.
+
+in real time we create diff workspaces for diff envs.
+each env is isloated with another env with help of workspaces.
+no need to write multiple config files, just chane the values
+
+
+COMMANDS:
+terraform workspace list	: to show list of workspace
+terraform workspace new dev	: to Create and switch to workspace "dev"
+terraform workspace show	: to show current workspace
+terraform workspace select test	: to switch blw workspaces
+terraform workspace delete test	: to delete the workspaces
+
+
+
+provider "aws" {
+region = "us-east-1"
+}
+
+locals {
+env = "${terraform.workspace}"
+}
+
+resource "aws_vpc" "one" {
+cidr_block = "10.0.0.0/16"
+tags = {
+Name = "${local.env}-vpc"
+}
+}
+
+resource "aws_subnet" "two" {
+cidr_block = "10.0.0.0/16"
+availability_zone = "us-east-1c"
+vpc_id = aws_vpc.one.id
+tags = {
+Name = "${local.env}-subnet"
+}
+}
+
+resource "aws_instance" "three" {
+subnet_id = aws_subnet.two.id
+ami = "ami-01eccbf80522b562b"
+instance_type = "t2.large"
+tags = {
+Name = "${local.env}-server"
+}
+}
+
+
+NOTE:
+WE CANT DELETE CURRENT WORKSPACE.
+BEFOR DELETING WORKSPACE WE NEED TO DELETE RESOURCES ON IT.
+WE CANT DELETE DAFAULT WORKSPACE
+
+
+Terraform fmt: used to set the indentation for terraform files.
+Terraform Graph: to show the blue frint of infra.
+terraform graph : copy the code and past it on 
+graphwiz online 
+
+
+
+
+TERRAFORM BACKEND SETUP:
+in real time state file we need to keep backup and secure on remote laction.
+for that purpose we need to use s3.
+the state file will be store on s3 for saftey.
+
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_s3_bucket" "example" {
+  bucket = "rahamshaikterraprodbucket0088"
+}
+
+terraform {
+  backend "s3" {
+    bucket = "rahamshaikterraprodbucket0088"
+    key    = "prod/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
+locals {
+  env = terraform.workspace
+}
+
+resource "aws_vpc" "one" {
+  cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "${local.env}-vpc"
+  }
+}
+
+resource "aws_subnet" "two" {
+  cidr_block        = "10.0.0.0/16"
+  availability_zone = "us-east-1c"
+  vpc_id            = aws_vpc.one.id
+  tags = {
+    Name = "${local.env}-subnet"
+  }
+}
+
+resource "aws_instance" "three" {
+  subnet_id     = aws_subnet.two.id
+  ami           = "ami-01eccbf80522b562b"
+  instance_type = "t2.large"
+  tags = {
+    Name = "${local.env}-server"
+  }
+}
+
+Terraform taint: used to mark a resource to recreate.
+in real time if a resource is creashed or not working properly we need to recreate.
+this taint command will help to recreate the resource.
+after tainting the resource we need to run the apply command.
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_ebs_volume" "one" {
+size = 25
+availability_zone = "us-east-1a"
+tags = {
+Name = "Raham-ebsvol"
+}
+}
+
+resource "aws_iam_user" "two" {
+name = "rahamshaik0099"
+}
+
+resource "aws_iam_group" "three" {
+name = "devopsteam"
+}
+
+resource "aws_instance" "four" {
+  ami           = "ami-01eccbf80522b562b"
+  instance_type = "t2.large"
+  tags = {
+    Name = "terra-server"
+  }
+}
+
+terraform apply --auto-approve
+terraform state list
+terraform taint aws_instance.four
+terraform apply --auto-approve
+
+
+resource "local_file" "one" {
+filename = "abc.txt"
+content = "hai all my name is raham shaik"
+}
+
+
+provider "github" {
+token = "*"
+}
+
+resource "github_repository" "example" {
+  name        = "rahamshaikterrarepo"
+  description = "My awesome codebase"
+
+  visibility = "public"
+
+}
+
+
+VERSION CONSTARTINGS:
+
+provider "local" {
+}
+
+terraform {
+  required_providers {
+    local = {
+      source = "hashicorp/local"
+      version = "<2.2.0"
+    }
+  }
+}
+
+
+============================================================
+LIFECYCYLE:
+1. PREVENET_DESTROY: it wont destroy the resource even if we run destroy command
+
+provider "local" {
+}
+
+resource "aws_instance" "three" {
+  ami           = "ami-01eccbf80522b562b"
+  instance_type = "t2.large"
+  tags = {
+    Name = "abc-server"
+  }
+lifecycle {
+prevent_destroy = false
+}
+}
+
+2. IGNORE CHANGES: when we cahnge some componets of resources terraform will ignore it.
+3. DEPENDS ON: here resouce creation will depends on another resource.
+
+provider "local" {
+}
+
+resource "aws_instance" "three" {
+  ami           = "ami-01eccbf80522b562b"
+  instance_type = "t2.large"
+  availability_zone = "us-east-1a"
+  tags = {
+    Name = "abc-server"
+  }
+}
+
+resource "aws_ebs_volume" "two" {
+size = 10
+availability_zone = "us-east-1a"
+tags = {
+    Name = "abc-volume"
+  }
+depends_on = [aws_instance.three]
+}
+
+for_each loop:
+
+provider "local" {
+}
+
+resource "aws_instance" "three" {
+  for_each      = var.instance_type
+  ami           = "ami-01eccbf80522b562b"
+  instance_type = each.key
+  tags = {
+    Name = "abc-server"
+  }
+}
+
+variable "instance_type" {
+description = "*"
+type = set(string)
+default = ["t2.micro", "t2.medium", "t2.large"]
+}
+
+
+
+DYNAMIC BLOCK: it is used to reduce the length of code and used for reusabilty of code in loop.
+
+provider "aws" {
+}
+
+locals {
+  ingress_rules = [{
+    port        = 443
+    description = "Ingress rules for port 443"
+    },
+    {
+      port        = 80
+      description = "Ingree rules for port 80"
+  },
+  {
+      port        = 8080
+      description = "Ingree rules for port 8080"
+
+  }]
+}
+
+resource "aws_instance" "ec2_example" {
+  ami                    = "ami-0c02fb55956c7d316"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.main.id]
+  tags = {
+    Name = "Terraform EC2"
+  }
+}
+
+resource "aws_security_group" "main" {
+
+  egress = [
+    {
+      cidr_blocks      = ["0.0.0.0/0"]
+      description      = "*"
+      from_port        = 0
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "-1"
+      security_groups  = []
+      self             = false
+      to_port          = 0
+  }]
+
+  dynamic "ingress" {
+    for_each = local.ingress_rules
+
+    content {
+      description = "*"
+      from_port   = ingress.value.port
+      to_port     = ingress.value.port
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  tags = {
+    Name = "terra sg"
+  }
+}
+
+
+LIST:
+provider "aws" {
+}
+
+resource "aws_iam_user" "one" {
+count = length(var.user_name)
+name = var.user_name[count.index]
+}
+
+variable "user_name" {
+description = ""
+type = list(string)
+default = ["user-a", "user-b", "user-c"]
+}
+
+MAP:
+provider "aws" {
+}
+
+resource "aws_instance" "three" {
+  ami           = "ami-01eccbf80522b562b"
+  instance_type = "t2.large"
+  availability_zone = "us-east-1a"
+  tags = var.ec2_tags
+}
+
+variable "ec2_tags" {
+description = ""
+type = map(string)
+default = {
+env = "prod"
+client = "swiggy"
+Name = "rahamserver"
+}
+}
+
+
+MODULES:
+
+cat main.tf
+module "my_instance_module" {
+        source = "./modules/instances"
+        ami = "ami-04823729c75214919"
+        instance_type = "t2.micro"
+        instance_name = " rahaminstance"
+}
+
+module "s3_module" {
+source = "./modules/buckets"
+bucket_name = "devopsherahamshaik009988"
+}
+
+cat provider.tf
+provider "aws" {
+}
+
+cat modules/instances/main.tf
+resource "aws_instance" "my_instance" {
+        ami = var.ami
+        instance_type = var.instance_type
+        tags = {
+                Name = var.instance_name
+        }
+}
+
+cat modules/instances/variable.tf
+variable "ami" {
+  type          = string
+}
+
+variable "instance_type" {
+  type          = string
+}
+
+variable "instance_name" {
+  description   = "Value of the Name tag for the EC2 instance"
+  type          = string
+}
+
+cat modules/buckets/main.tf
+resource "aws_s3_bucket" "b" {
+bucket = var.bucket_name
+}
+
+cat modules/buckets/variable.tf
+variable "bucket_name" {
+type = string
+}
+
+
+
+===================================================================
+
+PROMETHEUS:
+
+Prometheus is an open-source monitoring system that is especially well-suited for cloud-native environments, like Kubernetes. 
+It can monitor the performance of your applications and services.
+it will sends an alert you if there are any issues. 
+It has a powerful query language that allows you to analyze the data.
+It pulls the real-time metrics, compresses and stores  in a time-series database.
+Prometheus is a standalone system, but it can also be used in conjunction with other tools like Alertmanager to send alerts based on the data it collects.
+it can be integration with tools like PagerDuty to send alerts to the appropriate on-call personnel.
+ it collects, and it also has a rich set of integrations with other tools and systems.
+For example, you can use Prometheus to monitor the health of your Kubernetes cluster, and use its integration with Grafana to visualize the data it collects.
+
+COMPONENTS OF PROMETHEUS:
+Prometheus is a monitoring system that consists of the following components:
+
+A main server that scrapes and stores time series data
+A query language called PromQL is used to retrieve and analyze the data
+A set of exporters that are used to collect metrics from various systems and applications
+A set of alerting rules that can trigger notifications based on the data
+An alert manager that handles the routing and suppression of alerts
+
+GRAFANA:
+Grafana is an open-source data visualization and monitoring platform that allows you to create dashboards to visualize your data and metrics. 
+It is a popular choice for visualizing time series data, and it integrates with a wide range of data sources, including Prometheus, Elasticsearch, and InfluxDB.
+A user-friendly interface that allows you to create and customize dashboards with panels that display your data in a variety of formats, including graphs, gauges, and tables. You can also use Grafana to set up alerts that trigger notifications when certain conditions are met.
+Grafana has a rich ecosystem of plugins and integrations that extend its functionality. For example, you can use Grafana to integrate with other tools and services, such as Slack or PagerDuty, to receive alerts and notifications.
+ Grafana is a powerful tool for visualizing and monitoring your data and metrics, and it is widely used in a variety of industries and contexts.
+
+CONNECTION:
+SETUP BOTH PROMETHEUS & GRAFAN FROM BELOW LINK
+https://github.com/RAHAMSHAIK007/all-setups.git
+
+pROMETHERUS: 9090
+NODE EXPORTER: 9100
+GRAFANA: 3000
+
+CONNECTING PROMETHEUS TO GARAFANA:
+connect to grafana dashboard -- > Data source -- > add -- > promethus -- > url of prometheus -- > save & test -- > top of page -- > explore data -- > if you want run some queries -- > top -- > import dashboard -- > 1860 -- > laod --- > prometheus -- > import 
+
+amazon-linux-extras install epel -y
+yum install strees -y
+
+
+
+LOKI INTEGRATION:
+Grafana with integration of Loki and Promtail:
+
+apt install docker.io -y
+
+wget https://raw.githubusercontent.com/grafana/loki/v2.8.0/cmd/loki/loki-local-config.yaml -O loki-config.yaml
+wget https://raw.githubusercontent.com/grafana/loki/v2.8.0/clients/cmd/promtail/promtail-docker-config.yaml -O promtail-config.yaml
+docker run --name loki -d -v $(pwd):/mnt/config -p 3100:3100 grafana/loki:2.8.0 -config.file=/mnt/config/loki-config.yaml
+docker run --name promtail -d -v $(pwd):/mnt/config -v /var/log:/var/log --link loki grafana/promtail:2.8.0 -config.file=/mnt/config/promtail-config.yaml
+
+
+
+Data Source in Grafana:
+Add data source -- > loki  -- > url: http://13.233.139.224:3100 -- > save & tets
+
+Checking logs in Loki:
+Explore -- > Label filters -- > jobs=varlogs -- > run query
+
+
+node exporter: exports metrics of server
+prometheus: to vizualize metrics in time series 

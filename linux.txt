@@ -1,0 +1,208 @@
+software architectures:
+application: collection of services.
+
+types:
+1. one tier
+2. two tier
+3. three tier
+4. n tier
+
+tier = layer = server
+
+server: which provides services.
+types of servers:
+1. web server
+2. app server
+3. db server
+
+WEB SERVER:
+It will show the application.
+it is also called as presentation layer.
+takes request from user and send to app server.
+
+UI/UX DEVELOPERS:
+UI TECHNOLOGIES:
+html,css, js ----
+frontend developers
+
+
+APP SERVER:
+To use the application.
+It is also called as Logic layer.
+
+Backend DEVELOPERS:
+Programming languages:
+Java, python, .net, go 
+top: js
+
+DB SERVER:
+To store and retrive the data.
+It is also called as db layer.
+
+db admins:
+db languages
+sql, postgres, oracle
+
+
+one tier: standalone app
+it will work locally, no need of internet.
+ALL LAYERS web, app, db will be on single place.
+app need to be on local.
+ex: VLC, MS SUITE
+
+
+two tier: client server apps
+web and app layers will be on local, but db will be on internet.
+app need to be on local.
+ex: jio saavan
+
+three tier: web app
+all 3 layers will be seperated
+app need not to be on local.
+ex: youtube, bookmyshow
+
+Ntier: distriburted applications
+if we have more than one app server.
+-------------------------------------------------------------------------
+DAY-02: 
+
+TO IMPLEMENT ANY ARCHITECTURE WE NEED TO USE SERVERS.
+SERVER -- > AWS ACCOUNT -- > 
+
+
+
+=================================
+
+DAY-03: SERVERS
+
+SERVER: provides services to end user.
+ex: app = paytm, services = movies, train, dth, ----
+APPLICATION: collection of services
+
+server -- > application -- > services
+
+cloud: data centers
+on-prem: local space
+
+
+aws: 34%
+azure: 19%
+gcp: 10%
+salesforce: 4%
+
+EC2 = ELASTIC COMPUTE CLOUD
+STEPS TO CREATE EC2: 7 STEPS
+
+SERVER = COMPUTER
+
+1. TAGS = NAME, TAGS
+2. AMI = OS, SOFWARES
+3. INSTANCE_TYPE = RAM, CPU
+4. KEY_PAIR = LOGIN (PUBLIC=AWS, PRIVATE=USER)
+5. NETWORKING = VPC, SECURITY GROUPS 
+6. STORAGE = EBS VOLUME (8GB, 16TB)
+7. SUMMARY
+
+
+VPC= VIRTUAL PRIVATE CLOUD (creats seperate n/w)
+SG= DEFINE PORT NUMBERS (0-65535)
+SSH = SECURE SHELL (22) -- > TO COMMUNICATE WITH SERVER
+
+
+yum install httpd git -y
+systemctl start httpd
+systemctl status httpd
+cd /var/www/html
+git clone https://github.com/CleverProgrammers/pwj-netflix-clone.git
+mv pwj-netflix-clone/* .
+tail -100f /var/log/httpd/access_log
+
+
+
+==============================================================================
+
+WHERE:
+1. ANDROID 
+2. SUPER COMPUTERS
+3. SMART WATCHES/TV 
+
+COMPONENTS:
+KERNEL: DEALS WITH HARDWARE COMPONENTS (CPU, MEMORY)
+DAEMON: DEALS WITH BACKGROUND PROCESS (BOOTING, KEYBOARD --)
+SHELL: DEALS WITH USER INPUTS (COMMAND, SCRIPTS, PROGRAMMS)
+
+
+FLAVOURS/DISTRIBUTIONS:
+IPHONE : 14, 14 PLUS, 14 MINI, 14 PRO, 14 PRO MAX
+LINUX: REDHAT, UBUNTU, CENTOS, FEDORA, OPEN SESU, LINUX MINT, ARCH, ROCKY, ALMA
+
+
+SERVER: LINUX-OS
+MODES:
+1. GUI	: GRAPHICAL USER INTERFACE
+2. CLI	: COMMAND LINE INTERFACE
+
+by default user: ec2-user
+we need to work with: root user
+
+SYSTEM COMMANDS:
+sudo -i		: to switch ec2-user to root
+uname		: to show os
+uname -a	: to show additinal info of os
+whoami		: to show current user
+logout(ctrl d)	: to switch root to ec2-user
+clear (ctrl l)	: to clear the screen
+who (w)		: to show who logins to system
+date		: to show date
+cal		: to show calenders
+
+HARDWARE COMMNADS:
+cat /proc/cpuinfo(lscpu)	: shows cpu iformation
+cat /proc/meminfo(lsmem)	: shows memory information
+cat /etc/os-release		: shows flavour of our os
+fdisk -l (df -h)		: to show the volume information
+dmesg				: to show boot msgs
+yum install lshw -y		: yum(pkg manager) install(action) lshw(pkg)
+lshw				: to show list of hardware components
+
+
+
+FILE COMMANDS:
+touch file1		: to craete a file
+ls/ll			: to list files
+cat file1		: to show the content in file
+more file1		: to show the content in file
+cat>>file1		: to insert content
+enter ctrl d		: to save and exit
+cp file1 file2		: copies content form file1 to file2
+cat file1 >> file2	: copies the content from file1 to file2 with out losing data
+mv file1 file2		: to rename a file
+touch file{1..100}	: to create multiple files
+rm file1		: to remove a file
+rm file2 -f		: to remove a file forcefully
+rm * -f			: to remove all files forecfully
+find / -name meminfo	: to find a particular file in linux
+head file1		: to print top 10 lines
+head -5 file1		: to print top 5 lines
+head -12 file1		: to print top 12 lines
+tail file1		: to print bottom 10 lines
+tail -5 file1		: to print bottom -5 lines
+tail -12 file1		: to print bottom -15 lines
+sed -n '6,13p' abc	: to print line 6 to 13 
+sed -n '9p' abc		: to print 9th line 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
